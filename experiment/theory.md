@@ -1,4 +1,4 @@
- A Hidden Markov Model (HMM) is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unobserved (hidden) states.In a regular Markov model (Markov Model (Ref: http://en.wikipedia.org/wiki/Markov_model)), the state is directly visible to the observer, and therefore the state transition probabilities are the only parameters. In a hidden Markov model, the state is not directly visible, but output, dependent on the state, is visible.
+A Hidden Markov Model (HMM) is a statistical Markov model in which the system being modeled is assumed to be a Markov process with unobserved (hidden) states.In a regular Markov model (Markov Model (Ref: http://en.wikipedia.org/wiki/Markov_model)), the state is directly visible to the observer, and therefore the state transition probabilities are the only parameters. In a hidden Markov model, the state is not directly visible, but output, dependent on the state, is visible.
 
 <img src="images/hmm.jpg">
 
@@ -12,10 +12,10 @@ For POS tagging, it is assumed that POS are generated as random process, and eac
 
 ```
 1. First-order (bigram) Markov assumptions:
-   	a. Limited Horizon: Tag depends only on previous tag
-		P(t<sub>i+1</sub> = t<sub>k</sub> | t<sub>1</sub>=t<sub>j1</sub>,.....,t<sub>i</sub>=t<sub>ji</sub>) = P(t<sub>i+1</sub> = t<sub>k</sub> | t<sub>i</sub> = t<sub>j</sub>)
-	b. Time invariance: No change over time
-		P(t<sub>i+1</sub> = t<sub>k</sub> | t<sub>i</sub> = t<sub>j</sub>) = P(t<sub>2</sub> = t<sub>k</sub> | t<sub>1</sub> = t<sub>j</sub>) = P(t<sub>j</sub> -> t<sub>k</sub>)
+   a. Limited Horizon: Tag depends only on previous tag
+      P(t<sub>i+1</sub> = t<sub>k</sub> | t<sub>1</sub>=t<sub>j1</sub>,.....,t<sub>i</sub>=t<sub>ji</sub>) = P(t<sub>i+1</sub> = t<sub>k</sub> | t<sub>i</sub> = t<sub>j</sub>)
+   b. Time invariance: No change over time
+      P(t<sub>i+1</sub> = t<sub>k</sub> | t<sub>i</sub> = t<sub>j</sub>) = P(t<sub>2</sub> = t<sub>k</sub> | t<sub>1</sub> = t<sub>j</sub>) = P(t<sub>j</sub> -> t<sub>k</sub>)
 2. Output probabilities:
    - Probability of getting word wk for tag tj: P(wk | tj) is independent of other tags or words!
 
@@ -53,7 +53,7 @@ Count the no. of times a specific word occus with a specific POS tag in the corp
 Here, say for **"cut"**
 
 ```
-count(cut,verb)=1</br> 
+count(cut,verb)=1</br>
 count(cut,noun)=2</br>
 count(cut,determiner)=0</br>
 ```
@@ -116,4 +116,4 @@ P(determiner/noun)=count(noun,determiner)/count(determiner)=0/3=0
 
 Repeat the same for all the tags
 
- Note: **EOS**/eos is a special marker which represents ***End Of Sentence***.
+Note: **EOS**/eos is a special marker which represents ***End Of Sentence***.
