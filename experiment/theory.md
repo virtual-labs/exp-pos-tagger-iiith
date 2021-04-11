@@ -46,3 +46,74 @@ EOS/eos
                             EOS/eos
 
 ```
+
+###  Calculating Emission Probability Matrix
+
+Count the no. of times a specific word occus with a specific POS tag in the corpus.</br>
+Here, say for **"cut"**
+
+```
+count(cut,verb)=1</br> 
+count(cut,noun)=2</br>
+count(cut,determiner)=0</br>
+```
+
+and so on zero for other tags too.
+
+
+```
+count(cut) = total count of cut = 3
+```
+
+Now, calculating the probability</br>
+Probability to be filled in the matrix cell at the intersection of cut and verb</br>
+
+```
+P(cut/verb)=count(cut,verb)/count(cut)=1/3=0.33
+```
+
+Similarly,</br>
+Probability to be filled in the cell at he intersection of cut and determiner
+
+```
+P(cut/determiner)=count(cut,determiner)/count(cut)=0/3=0
+```
+
+ Repeat the same for all the word-tag combination and fill the
+
+###  Calculating Transition Probability Matrix
+
+Count the no. of times a specific tag comes after other POS tags in the corpus.</br>
+Here, say for **"determiner"**
+
+```
+count(verb,determiner)=2</br>
+count(preposition,determiner)=1</br>
+count(determiner,determiner)=0 </br>
+count(eos,determiner)=0</br>
+count(noun,determiner)=0</br>
+```
+
+and so on zero for other tags too.
+
+```
+count(determiner) = total count of tag 'determiner' = 3
+```
+
+Now, calculating the probability
+Probability to be filled in the cell at he intersection of determiner(in the column) and verb(in the row)
+
+```
+P(determiner/verb)=count(verb,determiner)/count(determiner)=2/3=0.66
+```
+
+Similarly,</br>
+Probability to be filled in the cell at he intersection of determiner(in the column) and noun(in the row)
+
+```
+P(determiner/noun)=count(noun,determiner)/count(determiner)=0/3=0
+```
+
+Repeat the same for all the tags
+
+ Note: **EOS**/eos is a special marker which represents ***End Of Sentence***.
