@@ -1,7 +1,11 @@
-STEP1: Select the corpus.</br>
+**STEP1**: Select the language.
 
-STEP2: For the given corpus fill the emission and transition matrix. Answers are rounded to 2 decimal digits.</br>
+**OUTPUT**: Drop down to select size of corpus, algorithm and features will appear.
 
-STEP3: Press `Check` to check your answer.</br>
+**STEP2**: Select corpus size.
 
-Wrong answers are indicated by the red cell.
+**STEP3**: Select algorithm "CRF" or "HMM".
+
+**STEP4**: Select feature "bigram" or "trigram".
+
+**OUTPUT**: Corresponding accuracy wil be shown.

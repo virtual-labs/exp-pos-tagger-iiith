@@ -1,7 +1,9 @@
-1. How is Hidden Markov Model different from Markov Model?</br>
+**1**. How is training model formed in CRF?
 
-2. What is the basic design for HMM for finding out POS?</br>
+**2**. How is training model formed in TnT?
 
-3. What are the basic assumptions for the above model?</br>
+**3**. How is testing done in CRF?
 
-4. How does the corpus size effect the transition and emission matrix?</br>
+**4**. How is testing done in TnT?
+
+**5**. Which features are helpful for training a model for POS tagging?
