@@ -1,2 +1,1 @@
-**Speech and Language Processing - An Introduction to Natural Language Processing, Computational Linguistics and Speech Recognition**</br>
-BY: Daniel Jurafsky and James H. Martin - Chapter 7
+[Language Technologies Research Center, IIIT-H](http://iiit.academia.edu/Departments/Language_Technologies_Research_Centre_LTRC_)
