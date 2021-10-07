@@ -85,7 +85,7 @@
         
 	  breadcrumb="<font color='white'>"+ "<a href='../../index.html'>Home<a/> \> <a href='../index.html'>" + homePage + "</a> \> <a href='index.html'>" + thisPage + "</a>"+ "</font>";
         
-	  // $("article#experiment-article div#experiment-article-breadcrumb").html(breadcrumb);
+	  $("article#experiment-article div#experiment-article-breadcrumb").html(breadcrumb);
 				
 	  $("#container .default").each(function() 
 	  {
@@ -143,19 +143,20 @@
             
 	    $("#experiment-article-sections section").hide();
 	    $("#experiment-article-sections #" + sectionId).show();
-	    $("#experiment-article-sections #" + sectionId + " #emission_transmission").load("experiment4.php");
+	    $("#experiment-article-sections #" + sectionId + " #POS").load("experiment7.php");
         });
       });		
     });
+
+var timeOut = window.setTimeout(function(){
+$("#POS").load("experiment7.php"); 
+clearTimeout(timeOut);
+
+},
+50);
+
   });
 
-function selectCorpus(){
-var corpus = document.getElementById("corpus");
-theIndx=corpus.selectedIndex;
-corpus_name=corpus.options[theIndx].value;
-var cno=parseFloat(corpus_name);
-$('#display').load('experiment10-0.php?fileno='+cno);
-}
   </script>
 <!--VLEAD Google Analytics script starts here -->
 <script>
