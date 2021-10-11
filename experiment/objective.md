@@ -1,0 +1,1 @@
+- The objective of the experiment is to know the importance of context and size of training corpus in learning Parts of Speech
