@@ -33,12 +33,12 @@ if($language=='hin')
 else if($language=='eng')
 	$fp=fopen("analyse-size/accuracies_english","r");
 
-$train_token=array();
-$train_type=array();
-$algo=array();
-$test_token=array();
-$test_type=array();
-$feature=array();
+$train_token=[];
+$train_type=[];
+$algo=[];
+$test_token=[];
+$test_type=[];
+$feature=[];
 $accuracy;
 $count=0;
 
