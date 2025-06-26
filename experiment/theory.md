@@ -1,18 +1,29 @@
-#### Hidden Markov Model
+### What is POS Tagging?
 
-In the mid 1980s, researchers in Europe began to use Hidden Markov models (HMMs) to disambiguate parts of speech. HMMs involve counting cases, and making a table of the probabilities of certain sequences. For example, once you've seen an article such as 'the', perhaps the next word is a noun 40% of the time, an adjective 40%, and a number 20%. Knowing this, a program can decide that "can" in "the can" is far more likely to be a noun than a verb or a modal. The same method can of course be used to benefit from knowledge about following words.
+Part-of-Speech (POS) tagging is the process of assigning a grammatical category (such as noun, verb, adjective, etc.) to each word in a sentence. POS tagging is a foundational task in Natural Language Processing (NLP) because it helps computers understand the structure and meaning of text, enabling downstream applications like parsing, information extraction, and machine translation.
 
-More advanced ("higher order") HMMs learn the probabilities not only of pairs, but triples or even larger sequences. So, for example, if you've just seen an article and a verb, the next item may be very likely a preposition, article, or noun, but much less likely another verb.
+### Why is POS Tagging Important?
 
-When several ambiguous words occur together, the possibilities multiply. However, it is easy to enumerate every combination and to assign a relative probability to each one, by multiplying together the probabilities of each choice in turn.
+Words can have different meanings and grammatical roles depending on their context. For example, the word "can" in "I can swim" (verb) vs. "a can of beans" (noun). POS tagging helps disambiguate such cases by considering both the word and its surrounding context.
 
-It is worth remembering, as Eugene Charniak points out in Statistical techniques for natural language parsing, that merely assigning the most common tag to each known word and the tag "proper noun" to all unknowns, will approach 90% accuracy because many words are unambiguous.
+### Algorithms for POS Tagging
 
-HMMs underlie the functioning of stochastic taggers and are used in various algorithms. Accuracies for one such algorithm (TnT) on various training data is shown here.
+#### Hidden Markov Model (HMM)
 
-### Conditional Random Field
+HMMs are probabilistic models that assign POS tags by considering the likelihood of a tag sequence given the observed words. They use statistics from a labeled corpus to estimate the probability of a tag following another tag (context) and the probability of a word being associated with a tag. HMMs can use bigram (one neighbor) or trigram (two neighbors) context to improve accuracy. More advanced HMMs can learn the probabilities of longer sequences, allowing them to capture more complex patterns in language.
 
-Conditional random fields (CRFs) are a class of statistical modelling method often applied in machine learning, where they are used for structured prediction. Whereas an ordinary classifier predicts a label for a single sample without regard to "neighboring" samples, a CRF can take context into account. Since it can consider context, therefore CRF can be used in Natural Language Processing. Hence, Parts of Speech tagging is also possible. It predicts the POS using the lexicons as the context.
+![HMM for POS Tagging](./images/hmm.jpg)
 
-If only one neighbour is considered as a context, then it is called bigram. Similarly, two neighbours as the context is called trigram. In this experiment, size of training corpus and context were varied to know their importance.
+*Figure: An example of a Hidden Markov Model (HMM) for POS tagging. Each circle represents a possible part-of-speech tag (e.g., Det, ADJ, NN, NNS). Solid arrows show the probabilities of transitioning from one tag to another (e.g., Det → NN), while dashed arrows show the probabilities of a tag emitting a particular word (e.g., Det emits "the" or "a"). The model uses these probabilities to find the most likely sequence of tags for a given sentence.*
+
+#### Conditional Random Field (CRF)
+
+CRFs are a class of statistical modeling methods often applied in machine learning for structured prediction. Unlike HMMs, which make certain independence assumptions, CRFs can take into account a wider range of contextual features and dependencies. This makes them particularly effective for tasks like POS tagging, where the context of a word (its neighbors and other features) is crucial for accurate prediction. CRFs can use bigram, trigram, or even more complex features to improve tagging performance.
+
+### Role of Context and Corpus Size
+
+- **Context (Bigram/Trigram):** Using information from neighboring words (bigram/trigram) helps the model make better predictions, especially for ambiguous words.
+- **Corpus Size:** Larger training corpora provide more examples, allowing the model to learn more accurate probabilities and improve tagging performance.
+
+Building a POS tagger involves selecting appropriate algorithms (such as HMM or CRF), choosing relevant features (like context windows), and training on a sufficiently large and representative corpus. The effectiveness of a POS tagger depends on how well it can use context to resolve ambiguities and how much data it has seen during training. Modern POS taggers leverage both statistical models and rich contextual features to achieve high accuracy, making them essential tools in the field of Natural Language Processing.
 
