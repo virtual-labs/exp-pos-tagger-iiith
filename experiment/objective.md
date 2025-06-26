@@ -1,1 +1,3 @@
-- The objective of the experiment is to know the importance of context and size of training corpus in learning Parts of Speech
+- To understand the principles and process of Part-of-Speech (POS) tagging in natural language text.
+- To explore the impact of training corpus size, context features (bigram/trigram), and algorithm choice (HMM/CRF) on POS tagging accuracy.
+- To provide hands-on experience through interactive simulation, allowing users to experiment with different configurations and observe their effects.

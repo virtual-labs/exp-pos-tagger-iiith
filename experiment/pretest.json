@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the main goal of POS tagging in Natural Language Processing?",
+      "answers": {
+        "a": "To assign grammatical categories to each word in a sentence",
+        "b": "To translate text from one language to another",
+        "c": "To generate random sentences",
+        "d": "To count the number of words in a sentence"
+      },
+      "explanations": {
+        "a": "Correct! POS tagging assigns a part-of-speech label (like noun, verb, adjective, etc.) to every word in a sentence.",
+        "b": "Incorrect. Translation is not the goal of POS tagging.",
+        "c": "Incorrect. POS tagging is not about generating sentences.",
+        "d": "Incorrect. POS tagging is not about counting words."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is an example of a POS tag?",
+      "answers": {
+        "a": "NOUN",
+        "b": "Chunk",
+        "c": "Sentence",
+        "d": "Phrase"
+      },
+      "explanations": {
+        "a": "Correct! 'NOUN' is a common POS tag.",
+        "b": "Incorrect. 'Chunk' is not a POS tag, but a phrase label.",
+        "c": "Incorrect. 'Sentence' is not a POS tag.",
+        "d": "Incorrect. 'Phrase' is not a POS tag."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which machine learning models are commonly used for POS tagging in this experiment?",
+      "answers": {
+        "a": "Hidden Markov Model (HMM)",
+        "b": "Conditional Random Field (CRF)",
+        "c": "Both HMM and CRF",
+        "d": "Neural Networks only"
+      },
+      "explanations": {
+        "a": "Partially correct. HMM is used, but so is CRF.",
+        "b": "Partially correct. CRF is used, but so is HMM.",
+        "c": "Correct! Both HMM and CRF are used in this experiment to build POS taggers.",
+        "d": "Incorrect. Neural networks are not the focus of this experiment."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the effect of increasing the size of the training corpus on POS tagging accuracy?",
+      "answers": {
+        "a": "Accuracy generally increases",
+        "b": "Accuracy generally decreases",
+        "c": "Accuracy stays the same",
+        "d": "There is no effect"
+      },
+      "explanations": {
+        "a": "Correct! More training data usually helps the model learn better, increasing accuracy (up to a point).",
+        "b": "Incorrect. More data usually helps, not hurts, accuracy.",
+        "c": "Incorrect. Accuracy typically improves with more data.",
+        "d": "Incorrect. Training corpus size does affect accuracy."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which context feature is likely to give better POS tagging accuracy?",
+      "answers": {
+        "a": "No context",
+        "b": "Bigram (one neighbor)",
+        "c": "Trigram (two neighbors)",
+        "d": "Random context"
+      },
+      "explanations": {
+        "a": "Incorrect. Using context helps improve accuracy.",
+        "b": "Partially correct. Bigram context is useful, but trigram can be even better.",
+        "c": "Correct! Using trigram context (two neighbors) provides richer information and usually results in higher accuracy.",
+        "d": "Incorrect. Random context does not help POS tagging accuracy."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why might a CRF model outperform an HMM model for POS tagging?",
+      "answers": {
+        "a": "CRF can use more complex and global features",
+        "b": "CRF ignores the input sequence",
+        "c": "HMM always overfits",
+        "d": "HMM cannot be used for POS tagging"
+      },
+      "explanations": {
+        "a": "Correct! CRFs can incorporate a wider range of features and dependencies, making them more flexible and often more accurate for POS tagging.",
+        "b": "Incorrect. CRF does not ignore the input sequence; it models it more flexibly.",
+        "c": "Incorrect. HMMs do not always overfit, but they are less flexible than CRFs.",
+        "d": "Incorrect. HMMs can be used for POS tagging, but may not perform as well as CRFs."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is a key difference between POS tagging and chunking?",
+      "answers": {
+        "a": "POS tagging assigns tags to individual words, chunking groups words into phrases",
+        "b": "POS tagging is slower than chunking",
+        "c": "Chunking ignores word order",
+        "d": "POS tagging is only used for English"
+      },
+      "explanations": {
+        "a": "Correct! POS tagging is a word-level task, while chunking is a phrase-level task.",
+        "b": "Incorrect. POS tagging is usually faster than chunking.",
+        "c": "Incorrect. Both tasks are sensitive to word order.",
+        "d": "Incorrect. POS tagging is used for many languages."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Suppose your POS tagger is not performing well. Which of the following is LEAST likely to help improve its accuracy?",
+      "answers": {
+        "a": "Adding more labeled training data",
+        "b": "Using richer context features (bigram/trigram)",
+        "c": "Randomly shuffling the labels in the training data",
+        "d": "Switching from HMM to CRF"
+      },
+      "explanations": {
+        "a": "Incorrect. More labeled data usually helps.",
+        "b": "Incorrect. Richer context features usually help.",
+        "c": "Correct! Randomly shuffling the labels will harm, not help, accuracy.",
+        "d": "Incorrect. Switching to a more flexible model like CRF can help."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In the context of POS tagging, what does a 'feature' refer to?",
+      "answers": {
+        "a": "A property or attribute of a word or its context used by the model",
+        "b": "A type of POS tag",
+        "c": "A sentence in the training data",
+        "d": "A random number"
+      },
+      "explanations": {
+        "a": "Correct! Features are properties (like the word itself, its context, or neighboring words/tags) used by the model to make predictions.",
+        "b": "Incorrect. Features are not types of POS tags.",
+        "c": "Incorrect. Features are not sentences.",
+        "d": "Incorrect. Features are not random numbers."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following best describes a 'POS tag' in NLP?",
+      "answers": {
+        "a": "A label assigned to a word indicating its grammatical category",
+        "b": "A group of words forming a phrase",
+        "c": "A sentence in the training data",
+        "d": "A random number"
+      },
+      "explanations": {
+        "a": "Correct! A POS tag is a label (like NOUN, VERB, ADJ, etc.) assigned to a word to indicate its grammatical role.",
+        "b": "Incorrect. A phrase is not a POS tag.",
+        "c": "Incorrect. A sentence is not a POS tag.",
+        "d": "Incorrect. A random number is not a POS tag."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    }
+  ]
+}
