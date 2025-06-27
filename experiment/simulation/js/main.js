@@ -39,7 +39,7 @@ function parseDataFile(data) {
 function renderAllSteps() {
     // Language
     document.getElementById('step-language').innerHTML =
-        `<h3 class='step-heading'>1. Select Language</h3>
+        `<h3 class='step-heading'>1. Language</h3>
         <select autocomplete='off' name='lang' id='lang-select'>
             <option value='null'>---Select Language---</option>
             <option value='eng'>English</option>
@@ -47,19 +47,19 @@ function renderAllSteps() {
         </select>`;
     // Training size
     document.getElementById('step-train-size').innerHTML =
-        `<h3 class='step-heading'>2. Select Training Corpus Size</h3>
+        `<h3 class='step-heading'>2. Training Corpus Size</h3>
         <select name='train' id='train' disabled>
             <option value='null'>---Select Size of Training corpus---</option>
         </select>`;
     // Algorithm
     document.getElementById('step-algo').innerHTML =
-        `<h3 class='step-heading'>3. Select Algorithm</h3>
+        `<h3 class='step-heading'>3. Algorithm</h3>
         <select name='algo' id='algo' disabled>
             <option value='null'>---Select Algorithm for Training---</option>
         </select>`;
     // Feature
     document.getElementById('step-feature').innerHTML =
-        `<h3 class='step-heading'>4. Select Feature for Training</h3>
+        `<h3 class='step-heading'>4. Feature for Training</h3>
         <select name='feature' id='feature' disabled>
             <option value='null'>---Select Feature for Training---</option>
         </select>`;

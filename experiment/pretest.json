@@ -21,13 +21,13 @@
     {
       "question": "Which of the following is an example of a POS tag?",
       "answers": {
-        "a": "NOUN",
+        "a": "Noun",
         "b": "Chunk",
         "c": "Sentence",
         "d": "Phrase"
       },
       "explanations": {
-        "a": "Correct! 'NOUN' is a common POS tag.",
+        "a": "Correct! 'Noun' is a common POS tag.",
         "b": "Incorrect. 'Chunk' is not a POS tag, but a phrase label.",
         "c": "Incorrect. 'Sentence' is not a POS tag.",
         "d": "Incorrect. 'Phrase' is not a POS tag."
