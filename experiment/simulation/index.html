@@ -1,77 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>POS Tagger Simulation</title>
-    <link href="css/main.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <!-- Only include jQuery if your JS uses it -->
     <script src="js/jquery-1.7.1.min.js"></script>
     <!-- Your main simulation logic -->
     <script src="js/main.js"></script>
-</head>
-<body class="index" id="page-top">
-    <div id="top">
-        <div id="content">
-            <div class="container-fluid" style="margin-left: 35px; margin-right: 35px;">
-                    <div class="col-md-10 lab-list-col-10">
-                    <div class="simulation-flex-container simulation-2col-grid">
-                        <aside class="sim-sidebar" id="pos-info-sidebar">
-                            <h2>What is POS Tagging?</h2>
-                            <p><b>Part-of-Speech (POS) tagging</b> is the process of assigning a grammatical category (such as noun, verb, adjective, etc.) to each word in a sentence. It is a fundamental task in Natural Language Processing (NLP) and helps computers understand the structure and meaning of text.</p>
-                            <ul>
-                                <li><b>POS tagging</b> is <u>word-level</u>: each word gets a tag.</li>
-                                <li><b>Chunking</b> is <u>phrase-level</u>: groups of words are labeled as phrases (e.g., noun phrase).</li>
-                            </ul>
-                            <p>POS tagging is used in applications like grammar checking, information extraction, and machine translation.</p>
-                            <div class="pos-tag-legend">
-                                <h3>POS Tag Legend</h3>
-                                <ul>
-                                    <li><span class="tag-sample">NOUN</span>: Noun</li>
-                                    <li><span class="tag-sample">VERB</span>: Verb</li>
-                                    <li><span class="tag-sample">ADJ</span>: Adjective</li>
-                                    <li><span class="tag-sample">ADV</span>: Adverb</li>
-                                    <li><span class="tag-sample">PRON</span>: Pronoun</li>
-                                    <li><span class="tag-sample">DET</span>: Determiner</li>
-                                    <li><span class="tag-sample">ADP</span>: Adposition</li>
-                                    <li><span class="tag-sample">CONJ</span>: Conjunction</li>
-                                    <li><span class="tag-sample">NUM</span>: Numeral</li>
-                                    <li><span class="tag-sample">PRT</span>: Particle</li>
-                                    <li><span class="tag-sample">.</span>: Punctuation</li>
-                                </ul>
-                            </div>
-                        </aside>
-                        <div class="sim-maincol">
-                            <div class="simulation-step" id="step-language">
-                                <div class="step-explanation">Select a language to see how POS tagging works in different scripts.</div>
-                            </div>
-                            <div class="simulation-step" id="step-train-size">
-                                <div class="step-explanation">Choose the size of the training corpus. Larger corpora usually lead to better accuracy.</div>
-                            </div>
-                            <div class="simulation-step" id="step-algo">
-                                <div class="step-explanation">Select the algorithm for training the POS tagger (e.g., HMM, CRF).</div>
-                            </div>
-                            <div class="simulation-step" id="step-feature">
-                                <div class="step-explanation">Choose which features to use for training (e.g., word, context, etc.).</div>
-                            </div>
-                            <div id="step-accuracy-container"><!-- Only the button will be here, no extra style --></div>
-                            <div id="result-panel">
-                                <h3 class="result-heading">Result</h3>
-                                <div id="result-content" style="text-align:center; min-height:unset;"></div>
-                                <select id="result-demo-select" style="display:none">
-                                    <option value="placeholder">-- Choose an example --</option>
-                                    </select>
-                                <div id="result-demo-output" class="example-pos-sentence" style="display:none"></div>
-                            </div>
-                            <div id="reset-container" style="text-align:center;">
-                                <button id="reset-simulation" class="sim-button">Try Another Configuration</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </head>
+  <body class="index" id="page-top">
+    <div class="container">
+      <div class="main-content">
+        <!-- Instructions Panel -->
+        <div class="instructions-panel">
+          <div class="instructions-header clickable" id="instructionsTab">
+            <h3 style="text-align: center; flex-grow: 1">Instructions</h3>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div id="instructionsContent" class="instructions-content collapsed">
+            <ul class="instructions-list">
+              <li>
+                Select a language to see how POS tagging works in different
+                scripts and languages.
+              </li>
+              <li>
+                Choose the training corpus size - larger corpora typically
+                provide better accuracy but take more time to process.
+              </li>
+              <li>
+                Select the algorithm for training your POS tagger (HMM, CRF,
+                etc.) based on your requirements.
+              </li>
+              <li>
+                Pick the features to use for training (word-level,
+                context-based, morphological features).
+              </li>
+              <li>
+                Click <strong>Train & Test</strong> to see the accuracy results
+                and demo the trained model.
+              </li>
+              <li>
+                Use the dropdown in the results section to test the tagger on
+                example sentences.
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="three-pane-layout">
+          <!-- Pane 1: Language and Training Setup -->
+          <div class="pane pane-left">
+            <div class="step-header">
+              <span class="step-title">Language & Training Setup</span>
+              <span
+                class="info-icon"
+                tabindex="0"
+                title="Choose your language and configure the basic training parameters for the POS tagger."
+              >
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <div class="setup-block">
+              <div class="simulation-step" id="step-language">
+                <div class="step-explanation">
+                  Select a language to see how POS tagging works in different
+                  scripts.
+                </div>
+              </div>
+              <div class="simulation-step" id="step-train-size">
+                <div class="step-explanation">
+                  Choose the size of the training corpus. Larger corpora usually
+                  lead to better accuracy.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Algorithm Configuration -->
+          <div class="pane pane-middle">
+            <div class="step-header">
+              <span class="step-title">Algorithm & Features</span>
+              <span
+                class="info-icon"
+                tabindex="0"
+                title="Configure the machine learning algorithm and select features for training your POS tagger."
+              >
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <div class="config-block">
+              <div class="simulation-step" id="step-algo">
+                <div class="step-explanation">
+                  Select the algorithm for training the POS tagger (e.g., HMM,
+                  CRF).
+                </div>
+              </div>
+              <div class="simulation-step" id="step-feature">
+                <div class="step-explanation">
+                  Choose which features to use for training (e.g., word,
+                  context, etc.).
+                </div>
+              </div>
+              <div id="step-accuracy-container">
+                <!-- Only the button will be here, no extra style -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3: Results and Demo -->
+          <div class="pane pane-right">
+            <div class="step-header">
+              <span class="step-title">Results & Demo</span>
+              <span
+                class="info-icon"
+                tabindex="0"
+                title="View training results and test the trained POS tagger on example sentences."
+              >
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <div class="results-block">
+              <div id="result-panel" style="display: none">
+                <div
+                  id="result-content"
+                  style="text-align: center; min-height: unset"
+                ></div>
+                <select
+                  id="result-demo-select"
+                  style="display: none"
+                  class="select-box"
+                >
+                  <option value="placeholder">-- Choose an example --</option>
+                </select>
+                <div
+                  id="result-demo-output"
+                  class="example-pos-sentence"
+                  style="display: none"
+                ></div>
+              </div>
+              <div id="reset-container" class="button-container">
+                <button id="reset-simulation" class="secondary-button">
+                  <i class="fas fa-undo"></i> Try Another Configuration
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

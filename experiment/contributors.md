@@ -7,4 +7,5 @@
 ### Developers
 | SNo. | Name               | Email                               | Institute    |
 | :---: | :------------------:| :------------------------------------:| :---------------:|
-| 1  | Gaurav Behra       | 	gaurav.behera@research.iiit.ac.in | IIIT Hyderabad     |
+|  1  | Gaurav Behera | gaurav.behera@research.iiit.ac.in   |   IIIT Hyderabad     |
+|    |         |            |            |
