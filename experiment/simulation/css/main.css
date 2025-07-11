@@ -63,6 +63,95 @@ body {
   font-family: inherit;
 }
 
+/* Comprehensive Font Inheritance - Ensure all text elements use the same font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit !important;
+}
+
+p,
+div,
+span,
+label,
+li,
+td,
+th,
+a {
+  font-family: inherit !important;
+}
+
+input,
+button,
+select,
+textarea,
+option {
+  font-family: inherit !important;
+}
+
+table,
+tbody,
+thead,
+tfoot,
+tr {
+  font-family: inherit !important;
+}
+
+/* Simulation-specific elements */
+.step-heading,
+.step-title,
+.step-explanation {
+  font-family: inherit !important;
+}
+
+.result-heading,
+.instruction-step,
+.step-number {
+  font-family: inherit !important;
+}
+
+.instructions-list,
+.instructions-list li {
+  font-family: inherit !important;
+}
+
+.primary-button,
+.secondary-button,
+.sim-button {
+  font-family: inherit !important;
+}
+
+.pane-label,
+.info-icon,
+.toggle-btn {
+  font-family: inherit !important;
+}
+
+.example-pos-sentence,
+.tag-sample {
+  font-family: inherit !important;
+}
+
+.pos-tag-legend,
+.pos-tag-legend h3 {
+  font-family: inherit !important;
+}
+
+#result-content,
+#result-demo-output,
+#demo-sentence-output {
+  font-family: inherit !important;
+}
+
+#accuracy_ans,
+.error-message,
+.loading {
+  font-family: inherit !important;
+}
+
 .container {
   width: 90vw;
   max-width: 1400px;
