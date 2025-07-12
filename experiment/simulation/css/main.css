@@ -170,19 +170,19 @@ h1,
   font-weight: 900;
   color: var(--color-primary-dark);
   text-align: center;
-  margin: 2rem 0 1.2rem 0;
+  margin: 1.2rem 0 0.8rem 0;
   letter-spacing: 0.01em;
   line-height: 1.1;
 }
 h2 {
   font-size: 2rem;
   font-weight: 700;
-  margin: 1.5rem 0 1rem 0;
+  margin: 1rem 0 0.6rem 0;
 }
 h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  margin: 1.2rem 0 0.7rem 0;
+  margin: 0.8rem 0 0.4rem 0;
 }
 
 /* 2-Pane Layout */
@@ -201,7 +201,7 @@ h3 {
   box-sizing: border-box;
   width: 100%;
   overflow-wrap: break-word;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.3rem;
   box-shadow: var(--shadow-md);
   border-radius: var(--radius-md);
   border: 1px solid var(--pane-border);
@@ -265,7 +265,7 @@ h3 {
 .instructions-panel {
   width: 100%;
   max-width: 100%;
-  margin: 1.2rem auto 1.2rem auto;
+  margin: 0.6rem auto 0.8rem auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -277,7 +277,9 @@ h3 {
 .instructions-header {
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.6rem 1rem;
   background: linear-gradient(
     90deg,
     var(--color-secondary-light) 0%,
@@ -296,11 +298,18 @@ h3 {
   );
 }
 .instructions-header h3 {
-  margin: 0 0 0 0.5rem;
+  margin: 0;
   color: var(--color-primary-dark);
-  flex-grow: 1;
   font-weight: 700;
   font-size: 1.15em;
+}
+.arrow-icon {
+  color: var(--color-primary-dark);
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+.instructions-panel:not(.collapsed) .arrow-icon {
+  transform: rotate(180deg);
 }
 .toggle-btn {
   background: none;
@@ -318,7 +327,7 @@ h3 {
   transform: translateY(-1px);
 }
 .instructions-content {
-  padding: 0.7rem 0.5rem;
+  padding: 0.4rem 0.3rem;
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -358,8 +367,8 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  margin-bottom: 0.6rem;
+  padding: 0.3rem 0.6rem;
   background: linear-gradient(
     90deg,
     var(--color-primary-light) 0%,
@@ -388,7 +397,7 @@ h3 {
   border-radius: 2.2em;
   font-size: 1.08em;
   font-weight: 700;
-  padding: 0.7em 1.7em;
+  padding: 0.4em 1.2em;
   margin: 0.2em 0.2em 0.2em 0;
   box-shadow: 0 2px 8px rgba(67, 97, 238, 0.08);
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
@@ -465,7 +474,7 @@ h3 {
 select,
 input[type="text"] {
   display: block;
-  margin: 0.4em auto 0.4em auto;
+  margin: 0.3em auto 0.3em auto;
   width: 90%;
   min-width: 120px;
   max-width: 320px;
@@ -475,7 +484,7 @@ input[type="text"] {
   border-radius: var(--radius-md);
   font-size: 1.15rem;
   color: var(--color-neutral-800);
-  padding: 0.5em 0.8em;
+  padding: 0.3em 0.6em;
   transition: border-color 0.2s;
 }
 select:focus,
