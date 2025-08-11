@@ -1,8 +1,8 @@
-### Introduction to POS Tagging
-
 **Part-of-Speech (POS) tagging** is a fundamental task in Natural Language Processing that involves assigning grammatical categories to each word in a text. These categories include nouns, verbs, adjectives, adverbs, prepositions, conjunctions, determiners, and others. POS tagging serves as a crucial preprocessing step for many advanced NLP applications.
 
-### The POS Tagging Problem
+---
+
+#### The POS Tagging Problem
 
 Consider the sentence: _"The can can hold water."_
 
@@ -13,7 +13,7 @@ Without context, it's unclear how to tag the word "can":
 
 This ambiguity makes POS tagging a challenging computational problem that requires sophisticated algorithms to resolve.
 
-### Grammatical Categories (POS Tags)
+#### Grammatical Categories (POS Tags)
 
 #### Common POS Tags (Penn Treebank Tagset)
 
@@ -31,7 +31,7 @@ This ambiguity makes POS tagging a challenging computational problem that requir
 | **CC**  | Conjunction       | and, but, or    | Connects words/phrases           |
 | **PRP** | Pronoun           | he, she, it     | Replaces nouns                   |
 
-### Challenges in POS Tagging
+#### Challenges in POS Tagging
 
 #### 1. Lexical Ambiguity
 
@@ -48,7 +48,7 @@ New words, proper nouns, and domain-specific terms not seen during training pose
 
 The correct tag often depends on surrounding words and broader sentence structure.
 
-### POS Tagging Algorithms
+#### POS Tagging Algorithms
 
 #### 1. Hidden Markov Models (HMM)
 
@@ -113,7 +113,7 @@ Where:
 - `λ_k` = feature weights
 - `Z(x)` = normalization factor
 
-### Context Features
+#### Context Features
 
 #### Unigram Features
 
@@ -140,7 +140,7 @@ Consider current and two previous tags:
 - Higher computational complexity
 - Risk of data sparsity
 
-### Training Corpus Considerations
+#### Training Corpus Considerations
 
 #### Corpus Size Impact
 
@@ -168,7 +168,7 @@ Consider current and two previous tags:
 2. **Annotation Consistency**: Uniform tagging standards
 3. **Linguistic Variation**: Different writing styles and registers
 
-### Evaluation Metrics
+#### Evaluation Metrics
 
 #### Accuracy
 
@@ -187,7 +187,7 @@ Accuracy = (Correctly tagged words) / (Total words) × 100%
 - **Confusion Matrix**: Shows which tags are confused with others
 - **Unknown Word Performance**: Accuracy on out-of-vocabulary terms
 
-### Applications of POS Tagging
+#### Applications of POS Tagging
 
 #### 1. Syntactic Parsing
 
@@ -224,6 +224,6 @@ Understanding grammatical roles helps in matching questions to appropriate answe
 - **Domain Adaptation**: Adapting models to specific domains (medical, legal, social media)
 - **Multi-task Learning**: Joint training with related tasks like named entity recognition
 
-### Conclusion
+#### Conclusion
 
 POS tagging represents a fundamental bridge between raw text and structured linguistic analysis. Understanding the theoretical foundations, algorithmic approaches, and practical considerations enables effective application of POS tagging in diverse NLP scenarios. The choice between different algorithms and configurations depends on specific requirements for accuracy, speed, and available training data.

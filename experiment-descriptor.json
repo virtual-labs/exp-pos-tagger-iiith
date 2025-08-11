@@ -58,6 +58,13 @@
       "content-type": "assesment"
     },
     {
+      "target": "assignment.html",
+      "source": "assignment.md",
+      "label": "Assignment",
+      "unit-type": "task",
+      "content-type": "text"
+    },
+    {
       "target": "trivia.html",
       "source": "trivia.md",
       "label": "Trivia",
