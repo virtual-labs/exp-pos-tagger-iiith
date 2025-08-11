@@ -21,6 +21,8 @@
   let alertElement = null;
   let orientationCheckInterval = null;
   let isInitialized = false;
+  let userDismissedAlert = false; // NEW: Track if user manually dismissed the alert
+  let sessionStorage = window.sessionStorage || null; // For persistence across page interactions
 
   /**
    * Debug logging function
@@ -29,6 +31,47 @@
     if (CONFIG.enableDebugMode) {
       console.log(`[MobileDetection] ${message}`, data || "");
     }
+  }
+
+  /**
+   * Check if user has previously dismissed the alert in this session
+   */
+  function hasUserDismissedAlert() {
+    if (userDismissedAlert) return true;
+
+    if (sessionStorage) {
+      return (
+        sessionStorage.getItem("pos-tagger-mobile-alert-dismissed") === "true"
+      );
+    }
+
+    return false;
+  }
+
+  /**
+   * Mark alert as dismissed by user
+   */
+  function markAlertAsDismissed() {
+    userDismissedAlert = true;
+
+    if (sessionStorage) {
+      sessionStorage.setItem("pos-tagger-mobile-alert-dismissed", "true");
+    }
+
+    debugLog("Alert marked as dismissed by user");
+  }
+
+  /**
+   * Reset dismissal state (when user rotates to landscape and back)
+   */
+  function resetDismissalState() {
+    userDismissedAlert = false;
+
+    if (sessionStorage) {
+      sessionStorage.removeItem("pos-tagger-mobile-alert-dismissed");
+    }
+
+    debugLog("Alert dismissal state reset");
   }
 
   /**
@@ -207,7 +250,12 @@
             box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
         `;
 
-    continueBtn.addEventListener("click", hideAlert);
+    // UPDATED: Continue button click handler to mark as dismissed
+    continueBtn.addEventListener("click", () => {
+      markAlertAsDismissed(); // Mark as dismissed before hiding
+      hideAlert();
+    });
+
     continueBtn.addEventListener("mouseover", () => {
       continueBtn.style.transform = "translateY(-2px)";
       continueBtn.style.boxShadow = "0 6px 16px rgba(79, 195, 247, 0.4)";
@@ -217,10 +265,10 @@
       continueBtn.style.boxShadow = "0 4px 12px rgba(79, 195, 247, 0.3)";
     });
 
-    // Dismiss text
+    // Dismiss text - UPDATED message
     const dismissText = document.createElement("p");
     dismissText.textContent =
-      "This alert will auto-hide when you rotate to landscape";
+      "Won't show again after you choose to continue in portrait mode";
     dismissText.style.cssText = `
             font-size: 0.8rem;
             color: #999;
@@ -247,7 +295,11 @@
    * Show the orientation alert
    */
   function showAlert() {
-    if (alertShown || !document.body) return;
+    // UPDATED: Don't show if user has dismissed or already shown
+    if (alertShown || !document.body || hasUserDismissedAlert()) {
+      debugLog("Alert not shown - already shown, no body, or user dismissed");
+      return;
+    }
 
     debugLog("Showing orientation alert");
     const alert = createAlertElement();
@@ -263,9 +315,14 @@
       });
     }
 
-    // Auto-hide after duration if still in portrait
+    // UPDATED: Auto-hide after duration if still in portrait AND user hasn't dismissed
     setTimeout(() => {
-      if (alertShown && isMobileDevice() && isPortraitOrientation()) {
+      if (
+        alertShown &&
+        isMobileDevice() &&
+        isPortraitOrientation() &&
+        !hasUserDismissedAlert()
+      ) {
         hideAlert();
       }
     }, CONFIG.alertDuration);
@@ -295,6 +352,7 @@
     if (typeof gtag === "function") {
       gtag("event", "mobile_orientation_alert_dismissed", {
         orientation: getOrientation(),
+        user_dismissed: hasUserDismissedAlert(),
       });
     }
   }
@@ -314,15 +372,27 @@
       isTablet,
       isPortrait,
       orientation: getOrientation(),
+      userDismissed: hasUserDismissedAlert(),
     });
 
-    // Show alert for mobile devices in portrait mode
-    if (isMobile && isPortrait && !alertShown) {
+    // UPDATED: Only show alert if user hasn't dismissed it
+    if (isMobile && isPortrait && !alertShown && !hasUserDismissedAlert()) {
       setTimeout(showAlert, CONFIG.showAlertDelay);
     }
     // Hide alert if rotated to landscape or on larger screen
     else if (alertShown && (!isMobile || !isPortrait)) {
       hideAlert();
+    }
+
+    // UPDATED: Reset dismissal state if user goes to landscape mode
+    // This allows the alert to show again if they rotate back to portrait
+    if (!isMobile || !isPortrait) {
+      if (hasUserDismissedAlert()) {
+        resetDismissalState();
+        debugLog(
+          "Reset dismissal state - user is in landscape or on larger screen"
+        );
+      }
     }
   }
 
@@ -415,6 +485,7 @@
     isTablet: isTabletDevice,
     isPortrait: isPortraitOrientation,
     getOrientation: getOrientation,
+    resetDismissal: resetDismissalState, // NEW: Allow manual reset
     config: CONFIG,
   };
 
