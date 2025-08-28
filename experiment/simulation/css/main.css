@@ -1,1 +1,909 @@
-/* You CSS goes in here */
+/* main.css: Modern POS Tagger Design System */
+:root {
+  --color-primary: #4361ee;
+  --color-primary-light: #4895ef;
+  --color-primary-dark: #3a0ca3;
+  --color-secondary: #4cc9f0;
+  --color-secondary-light: #72efdd;
+  --color-secondary-dark: #3f8efc;
+  --color-accent: #f72585;
+  --color-accent-light: #ff8fab;
+  --color-accent-dark: #b5179e;
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-md: 0 4px 6px -1px rgba(67, 97, 238, 0.08),
+    0 2px 4px -1px rgba(67, 97, 238, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(67, 97, 238, 0.1),
+    0 4px 6px -2px rgba(67, 97, 238, 0.05);
+
+  /* Legacy variables for backward compatibility */
+  --primary-color: var(--color-primary);
+  --secondary-color: var(--color-secondary);
+  --success-color: var(--color-success);
+  --error-color: var(--color-error);
+  --text-color: var(--color-neutral-800);
+  --background-color: var(--color-neutral-50);
+  --border-color: var(--color-neutral-200);
+  --info-color: var(--color-primary);
+  --hint-color: var(--color-neutral-600);
+  --pane-bg: #fff;
+  --pane-border: var(--color-neutral-200);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--color-neutral-800);
+  background-color: var(--color-neutral-50);
+  font-size: 0.97em;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Ensure all elements inherit the same font family */
+* {
+  font-family: inherit;
+}
+
+/* Comprehensive Font Inheritance - Ensure all text elements use the same font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit !important;
+}
+
+p,
+div,
+span,
+label,
+li,
+td,
+th,
+a {
+  font-family: inherit !important;
+}
+
+input,
+button,
+select,
+textarea,
+option {
+  font-family: inherit !important;
+}
+
+table,
+tbody,
+thead,
+tfoot,
+tr {
+  font-family: inherit !important;
+}
+
+/* Simulation-specific elements */
+.step-heading,
+.step-title,
+.step-explanation {
+  font-family: inherit !important;
+}
+
+.result-heading,
+.instruction-step,
+.step-number {
+  font-family: inherit !important;
+}
+
+.instructions-list,
+.instructions-list li {
+  font-family: inherit !important;
+}
+
+.primary-button,
+.secondary-button,
+.sim-button {
+  font-family: inherit !important;
+}
+
+.pane-label,
+.info-icon,
+.toggle-btn {
+  font-family: inherit !important;
+}
+
+.example-pos-sentence,
+.tag-sample {
+  font-family: inherit !important;
+}
+
+.pos-tag-legend,
+.pos-tag-legend h3 {
+  font-family: inherit !important;
+}
+
+#result-content,
+#result-demo-output,
+#demo-sentence-output {
+  font-family: inherit !important;
+}
+
+#accuracy_ans,
+.error-message,
+.loading {
+  font-family: inherit !important;
+}
+
+.container {
+  width: 90vw;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+h1,
+.experiment-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: var(--color-primary-dark);
+  text-align: center;
+  margin: 1.2rem 0 0.8rem 0;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 0 0.6rem 0;
+}
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0.8rem 0 0.4rem 0;
+}
+
+/* 2-Pane Layout */
+.three-pane-layout {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 39% 59%;
+  grid-template-rows: auto auto;
+  gap: 1rem 2%;
+  justify-items: stretch;
+}
+.pane {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-wrap: break-word;
+  padding: 0.5rem 0.3rem;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--pane-border);
+  margin: 0 auto;
+  background: var(--pane-bg);
+}
+.pane-left {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pane-middle {
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+}
+.pane-right {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pane-label {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+/* Info Icon and Tooltip */
+.info-icon {
+  color: var(--color-primary-dark);
+  margin-left: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-secondary-light);
+  border-radius: 50%;
+  width: 1.3em;
+  height: 1.3em;
+  text-align: center;
+  line-height: 1.3em;
+  font-weight: bold;
+  border: 1px solid var(--color-primary-light);
+  font-size: 0.9rem;
+  justify-content: center;
+}
+.info-icon:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+/* Instructions Panel */
+.instructions-panel {
+  width: 100%;
+  max-width: 100%;
+  margin: 0.6rem auto 0.8rem auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+}
+.instructions-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary-light) 0%,
+    var(--color-primary-light) 100%
+  );
+  border-bottom: 1px solid var(--color-neutral-200);
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.instructions-header:hover {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 0%,
+    var(--color-primary) 100%
+  );
+}
+.instructions-header h3 {
+  margin: 0;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 1.15em;
+}
+.arrow-icon {
+  color: var(--color-primary-dark);
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+.instructions-panel:not(.collapsed) .arrow-icon {
+  transform: rotate(180deg);
+}
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.toggle-btn:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+  transform: translateY(-1px);
+}
+.instructions-content {
+  padding: 0.4rem 0.3rem;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-neutral-100);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.04);
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  opacity: 1;
+  max-height: 400px;
+}
+.instructions-content.collapsed {
+  display: block;
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.instructions-list {
+  list-style: disc inside;
+  margin: 0.2em 0 0.2em 1em;
+  padding: 0;
+  font-size: 1em;
+  color: var(--color-neutral-800);
+  line-height: 1.5;
+}
+.instructions-list li {
+  margin-bottom: 0.3em;
+}
+
+/* Step Headers */
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  background: transparent; /* Changed from gradient to transparent */
+  border-radius: var(--radius-md);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+/* Button Styles */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0.5rem 0;
+  justify-content: flex-start;
+}
+
+.primary-button,
+.secondary-button,
+.sim-button {
+  border: none;
+  border-radius: 2.2em;
+  font-size: 1.08em;
+  font-weight: 700;
+  padding: 0.4em 1.2em;
+  margin: 0.2em 0.2em 0.2em 0;
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.primary-button,
+.sim-button {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 60%,
+    var(--color-secondary) 100%
+  );
+  color: #fff;
+}
+.primary-button:hover,
+.primary-button:focus,
+.sim-button:hover,
+.sim-button:focus {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark) 60%,
+    var(--color-accent) 100%
+  );
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(67, 97, 238, 0.13);
+}
+.secondary-button {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 60%,
+    var(--color-accent-light) 100%
+  );
+  color: #fff;
+}
+.secondary-button:hover,
+.secondary-button:focus {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary-dark) 60%,
+    var(--color-accent) 100%
+  );
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(67, 97, 238, 0.13);
+}
+
+.sim-button:disabled,
+.sim-button[disabled],
+.primary-button:disabled,
+.primary-button[disabled] {
+  background: linear-gradient(90deg, #e0e7ef 60%, #d0f0f7 100%);
+  color: #b0b0b0;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Center the Check Accuracy button */
+#step-accuracy-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* Form Elements */
+select,
+input[type="text"] {
+  display: block;
+  margin: 0.3em auto 0.3em auto;
+  width: 90%;
+  min-width: 120px;
+  max-width: 320px;
+  box-sizing: border-box;
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--color-neutral-800);
+  padding: 0.3em 0.6em;
+  transition: border-color 0.2s;
+}
+select:focus,
+input[type="text"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+input[readonly] {
+  background: var(--color-neutral-200);
+  border: 1px solid var(--color-neutral-300);
+  color: var(--color-neutral-700);
+  padding: 0.5em 0.8em;
+  border-radius: var(--radius-md);
+}
+
+/* Results Panel */
+#result-panel {
+  background: #fff;
+  border: 2px solid var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  min-height: 0;
+  min-width: 0;
+  padding: 0.7em 0.7em 0.7em 0.7em;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+.result-heading {
+  color: var(--color-primary-dark);
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  text-align: center;
+}
+#result-content {
+  width: 100%;
+  min-height: 120px;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+/* Accuracy Display */
+#accuracy_ans {
+  color: var(--color-success);
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* Demo Panel */
+#interactive-demo-panel {
+  background: #fff;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.5em 2em;
+  margin-top: 2.5em;
+  text-align: center;
+}
+#interactive-demo-panel h3 {
+  font-size: 1.5em;
+  color: var(--color-accent-dark);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+#interactive-demo-panel p {
+  font-size: 1.05em;
+  margin-bottom: 1em;
+}
+#demo-sentence-select,
+#result-demo-select {
+  width: 80%;
+  padding: 0.4em;
+  font-size: 1.05em;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-neutral-300);
+}
+
+/* Specific styling for result-demo-select to fit the demo sentence */
+#result-demo-select {
+  min-width: 420px;
+  max-width: 500px;
+  width: auto;
+}
+#demo-sentence-output,
+#result-demo-output {
+  margin-top: 1.5em;
+  padding: 1em;
+  background: var(--color-neutral-100);
+  border-radius: var(--radius-md);
+  min-height: 50px;
+  text-align: left;
+}
+
+/* POS Tag Examples */
+#example-pos-output {
+  background: var(--color-neutral-100);
+  border: 1.5px solid var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  margin-top: 1.5em;
+  padding: 1.2em 1.5em;
+  font-size: 1.08em;
+  box-shadow: 0 2px 8px rgba(67, 97, 238, 0.06);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.example-pos-sentence {
+  font-size: 1.15em;
+  margin-top: 0.7em;
+  color: var(--color-neutral-800);
+  word-break: break-word;
+}
+
+/* POS Tag Legend */
+.pos-tag-legend {
+  margin-top: 1.5em;
+  background: var(--color-neutral-50);
+  border-radius: var(--radius-md);
+  padding: 1em 1.2em;
+  border: 1px solid var(--color-neutral-200);
+}
+.pos-tag-legend h3 {
+  font-size: 1.1em;
+  margin-top: 0;
+  color: var(--color-primary);
+}
+.tag-sample {
+  display: inline-block;
+  background: var(--color-secondary-light);
+  color: var(--color-primary-dark);
+  border-radius: 0.4em;
+  padding: 0.1em 0.5em;
+  font-size: 0.98em;
+  font-weight: 600;
+  margin: 0 0.2em;
+  border: 1px solid var(--color-primary-light);
+}
+
+/* Professional styling for tag-sample in demo output */
+#result-demo-output .tag-sample,
+#demo-sentence-output .tag-sample {
+  background: var(--color-neutral-100);
+  color: var(--color-neutral-600);
+  border: 1px solid var(--color-neutral-300);
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 0.1em 0.4em;
+  margin: 0 0.1em;
+  border-radius: 0.25em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  vertical-align: baseline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .three-pane-layout {
+    grid-template-columns: 40% 60%;
+    gap: 1rem 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .three-pane-layout {
+    grid-template-columns: 45% 55%;
+    gap: 1rem 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: 98vw;
+    max-width: 98vw;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  .three-pane-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .instructions-panel {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .pane,
+  .pane-left,
+  .pane-middle,
+  .pane-right {
+    max-width: 100%;
+    width: 100%;
+    min-width: 280px;
+    grid-column: unset;
+    grid-row: unset;
+    box-sizing: border-box;
+  }
+
+  /* Explicitly set the order for small screens */
+  .pane-left {
+    order: 1;
+  }
+  .pane-middle {
+    order: 2;
+  }
+  .pane-right {
+    order: 3;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  .primary-button,
+  .secondary-button,
+  .sim-button {
+    font-size: 0.97em;
+    padding: 0.5rem 1rem;
+    margin: 0.1em 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 98vw;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  .instructions-panel,
+  .three-pane-layout {
+    width: 100%;
+    max-width: 100%;
+  }
+  .pane,
+  .pane-left,
+  .pane-middle,
+  .pane-right {
+    padding: 0.3rem 0.05rem;
+    max-width: 100%;
+    width: 100%;
+    min-width: 250px;
+    box-sizing: border-box;
+  }
+  .instructions-list {
+    font-size: 0.93em;
+  }
+  h1,
+  .experiment-title {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Contain result-demo-select within result-panel on small screens */
+  #result-demo-select {
+    min-width: 200px;
+    max-width: 90%;
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95vw;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+  .step-header {
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: center;
+    font-size: 1.2em;
+  }
+  .info-icon {
+    margin-left: 0;
+    margin-top: 0.2rem;
+  }
+  select,
+  input[type="text"] {
+    font-size: 0.9rem;
+    padding: 0.4em 0.6em;
+  }
+
+  /* Further adjust result-demo-select for very small screens */
+  #result-demo-select {
+    min-width: 180px;
+    max-width: 95%;
+    width: 95%;
+    font-size: 0.85em;
+  }
+}
+
+/* Ensure proper order for small screens */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.instructions-panel {
+  order: 0; /* Instructions panel first */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.three-pane-layout {
+  order: 1; /* Three-pane layout second */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Animation and transitions */
+.pane {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pane:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.simulation-step {
+  transition: box-shadow 0.2s ease;
+}
+.simulation-step:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Focus accessibility improvements */
+select:focus,
+input:focus,
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #000080;
+    --color-primary-dark: #000066;
+    --color-secondary: #006666;
+    --color-accent: #800040;
+    --color-neutral-800: #000000;
+    --color-neutral-200: #cccccc;
+  }
+}
+
+/* Print styles */
+@media print {
+  .instructions-panel {
+    page-break-inside: avoid;
+  }
+  .three-pane-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Loading and error states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.error-message {
+  background: var(--color-error);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  margin: 0.5rem 0;
+}
+
+/* Remove old instruction-step/step-number styles */
+.instruction-step,
+.step-number {
+  display: none !important;
+}
+
+/* Center the Try Another Configuration button */
+#interactive-demo-panel .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0 1rem 0;
+}
+
+#interactive-demo-panel .secondary-button {
+  margin: 0;
+}
+
+/* Center button in reset-container */
+#reset-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+#reset-container .secondary-button {
+  margin: 0;
+}

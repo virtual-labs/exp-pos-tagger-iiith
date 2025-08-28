@@ -1,237 +1,160 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Important Owl stylesheet -->
-    <link href="vendors/owl-carousel/owl.carousel.css" rel="stylesheet"/>
-    <link href="vendors/owl-carousel/owl.theme.css" rel="stylesheet"/>
-    <link href="vendors/font-awesome/css/font-awesome.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/style-main.scss" rel="stylesheet"/>
-    <script src="js/modernizr-1.5.min.js" type="text/javascript">
-    </script>
-
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>POS Tagger Simulation</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="js/mobile-detection.js"></script>
+    <!-- Only include jQuery if your JS uses it -->
     <script src="js/jquery-1.7.1.min.js"></script>
-    <script src="tabs.js" type="text/javascript"></script>
-  
-    <script type="text/javascript">
-        $(document).ready(function() {
-            //the function is called once the document loads     
-
-            $('#hidden-content').load('default.html #experiment',
-                function(response, status, xhr) {
-                    //loads the default.html #lab section into the
-                    //#hidden-content
-
-                    $('#container').load('content.html #experiment',
-                        function(response, status, xhr) {
-                            //loads the content.html #lab section into the
-                            //#container
-
-                            homePage = $("div#experiment-header-heading a").html();
-
-                            thisPage = $("article#experiment-article header#experiment-article-heading").html();
-
-                            breadcrumb = "<font color='white'>" + "<a href='../../index.html'>Home<a/> \> <a href='../index.html'>" + homePage + "</a> \> <a href='index.html'>" + thisPage + "</a>" + "</font>";
-
-                            $("article#experiment-article div#experiment-article-breadcrumb").html(breadcrumb);
-
-                            $("#container .default").each(function() {
-                                // Extracts all elements with class = "default"
-                                // and top down
-
-                                sectionId = $(this).attr('id');
-                                sectionContent = $("#hidden-content #" +
-                                    sectionId).html();
-                                $("#container #" + sectionId).html(sectionContent);
-                            });
-
-                            $("#container #experiment-article-sections > section").each(function() {
-                                // loads all the content in the respective
-                                // sections with the corresponding section headings 
-
-                                sectionId = $(this).attr('id');
-                                headerId = $("#" + sectionId + "-heading").html();
-                                iconId = $("#" + sectionId + "-icon").html();
-
-                                $("#container #experiment-article-navigation ul").
-                                append("<li> <a href=\'#\' id=\'" + sectionId +
-                                    "-menu\'>" + iconId + "<br />" +
-                                    headerId + "</a></li>");
-                            });
-
-                            /*			
-          $("#experiment-article-sections").after(
-            "<div id='experiment-article-sections-view'> </div>");
-	  $("#experiment-article-sections-view").html($(
-            "#experiment-article-sections section:first").html()); */
-
-                            $("#experiment-article-sections section").hide();
-                            //hide all the experiment sections
-
-                            $("#experiment-article-sections section:first").show();
-                            //show only the first experiment section when
-                            //the experiment page loads
-
-                            $("#experiment-article-navigation ul > li a").live('click',
-                                function() {
-                                    //enables the navigation
-
-                                    menuId = $(this).attr('id');
-                                    // this points to the current element
-
-                                    sectionId = menuId.replace(/-menu/i, "");
-                                    /*
-	    $("#experiment-article-sections-view").html($(
-            "#experiment-article-sections #" + 
-            sectionId).html());
-	    */
-
-                                    $("#experiment-article-sections section").hide();
-                                    $("#experiment-article-sections #" + sectionId).show();
-                                    $("#experiment-article-sections #" + sectionId + " #POS").load("experiment7.php");
-                                });
-                        });
-                });
-
-            var timeOut = window.setTimeout(function() {
-                    $("#POS").load("experiment7.php");
-                    clearTimeout(timeOut);
-
-                },
-                50);
-
-        });
-    </script>
-</head>
-
-<body class="index" id="page-top">
-    <div id="top">
-        
-
-        <div id="content">
-            
-
-            <!-- =================================================================================================================================== -->
-            <div class="container-fluid" style="margin-left: 35px; margin-right: 35px;">
-
-                <div class="row">
-                    
-                    <div class="col-md-10 lab-list-col-10">
-
-                        <!--edit -->
-                        <!-- <h1 class="text-h1-lightblue">Building POS Tagger</h1> -->
-                        <div class="content" id="experiment-article-section-4-content">
-
-                            <div id="POS">
-
-                                <p style="color:blue; font-style:italic">Select a language
-                                    <br/>
-                                    <select autocomplete="off" name="lang" onclick="language(this.value);">
-                                        <option value="null">---Select Language---</option>
-                                        <option value="eng">English</option>
-                                        <option value="hin">Hindi</option>
-                                    </select>
-                                </p>
-                                <br/>
-                                <br/>
-                                <div id="train-size"></div>
-
-                            </div>
-                            <!-- <div id="train-size"></div>-->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- =================================================================================================================================== -->
-
+    <script src="js/mobile-detection.js"></script>
+    <!-- Your main simulation logic -->
+    <script src="js/main.js"></script>
+  </head>
+  <body class="index" id="page-top">
+    <div class="container">
+      <div class="main-content">
+        <!-- Instructions Panel -->
+        <div class="instructions-panel">
+          <div class="instructions-header clickable" id="instructionsTab">
+            <h3>Instructions</h3>
+            <i class="fas fa-chevron-down arrow-icon"></i>
+          </div>
+          <div id="instructionsContent" class="instructions-content collapsed">
+            <ul class="instructions-list">
+              <li>
+                Select a language to see how POS tagging works in different
+                scripts and languages.
+              </li>
+              <li>
+                Choose the training corpus size - larger corpora typically
+                provide better accuracy but take more time to process.
+              </li>
+              <li>
+                Select the algorithm for training your POS tagger (HMM, CRF,
+                etc.) based on your requirements.
+              </li>
+              <li>
+                Pick the features to use for training (word-level,
+                context-based, morphological features).
+              </li>
+              <li>
+                Click <strong>Check Accuracy</strong> to see the accuracy
+                results and demo the trained model.
+              </li>
+              <li>
+                Use the dropdown in the results section to test the tagger on
+                example sentences.
+              </li>
+            </ul>
+          </div>
         </div>
-        <!-- content div -->
+        <div class="three-pane-layout">
+          <!-- Pane 1: Language and Training Setup -->
+          <div class="pane pane-left">
+            <div class="step-header">
+              <span class="step-title">Language & Training Setup</span>
+              <span
+                class="info-icon"
+                tabindex="0"
+                title="Choose your language and configure the basic training parameters for the POS tagger."
+              >
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <div class="setup-block">
+              <div class="simulation-step" id="step-language">
+                <div class="step-explanation">
+                  Select a language to see how POS tagging works in different
+                  scripts.
+                </div>
+              </div>
+              <div class="simulation-step" id="step-train-size">
+                <div class="step-explanation">
+                  Choose the size of the training corpus. Larger corpora usually
+                  lead to better accuracy.
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <!-- Pane 2: Algorithm Configuration -->
+          <div class="pane pane-middle">
+            <div class="step-header">
+              <span class="step-title">Algorithm & Features</span>
+              <span
+                class="info-icon"
+                tabindex="0"
+                title="Configure the machine learning algorithm and select features for training your POS tagger."
+              >
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <div class="config-block">
+              <div class="simulation-step" id="step-algo">
+                <div class="step-explanation">
+                  Select the algorithm for training the POS tagger (e.g., HMM,
+                  CRF).
+                </div>
+              </div>
+              <div class="simulation-step" id="step-feature">
+                <div class="step-explanation">
+                  Choose which features to use for training (e.g., word,
+                  context, etc.).
+                </div>
+              </div>
+              <div id="step-accuracy-container">
+                <!-- Only the button will be here, no extra style -->
+              </div>
+            </div>
+          </div>
 
-
+          <!-- Pane 3: Results and Demo -->
+          <div class="pane pane-right">
+            <div class="step-header">
+              <span class="step-title">Results & Demo</span>
+              <span
+                class="info-icon"
+                tabindex="0"
+                title="View training results and test the trained POS tagger on example sentences."
+              >
+                <i class="fas fa-info-circle"></i>
+              </span>
+            </div>
+            <div class="results-block">
+              <div id="result-panel" style="display: none">
+                <div
+                  id="result-content"
+                  style="text-align: center; min-height: unset"
+                ></div>
+                <select
+                  id="result-demo-select"
+                  style="display: none"
+                  class="select-box"
+                >
+                  <option value="placeholder">-- Choose an example --</option>
+                </select>
+                <div
+                  id="result-demo-output"
+                  class="example-pos-sentence"
+                  style="display: none"
+                ></div>
+              </div>
+              <div id="reset-container" class="button-container">
+                <button id="reset-simulation" class="secondary-button">
+                  <i class="fas fa-undo"></i> Try Another Configuration
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- top div -->
-
-    <script src="../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../js/custom.js"></script>
-
-    <!-- Include js plugin -->
-    <script src="../vendors/owl-carousel/owl.carousel.js"></script>
-
-    <script type="text/javascript">
-        function language(lang) {
-            document.getElementById("train-size").innerHTML = "";
-            if (lang == "null") {
-                // alert("Select Language");
-                // return;
-            }
-            $('#train-size').load('exp7.php?language=' + lang);
-        }
-
-        function change(lang) {
-            document.getElementById("algorithm").innerHTML = "";
-            var train = document.getElementById('train').value;
-            if (train == "null") {
-                // alert("Select Size of a corpus");
-                // return;
-            }
-            train = train.replace(/ /g, "");
-            document.getElementById("training-size").innerHTML = "<input type='text' value='" + train + "' readonly>";
-            $('#algorithm').load('exp7_1.php?language=' + lang + '&token=' + train);
-        }
-        $(document).ready(function() {
-
-            var owl = $("#owl-demo");
-            owl.owlCarousel({
-                navigation: true,
-                navigationText: [
-                    "<img src='../../../images/left-arrow.png'>",
-                    "<img src='../../../images/right-arrow.png'>"
-                ],
-                /* autoPlay : 3000,
-                stopOnHover : true */
-            });
-
-            //owl for partner institutions
-            var owl = $("#owl-partner-institutions");
-            owl.owlCarousel({
-                navigation: true,
-                navigationText: [
-                    "<img src='../../../images/left-arrow.png'>",
-                    "<img src='../../../images/right-arrow.png'>"
-                ],
-                autoPlay: 3000,
-                stopOnHover: true,
-                items: 8,
-            });
-
-            //owl for aboutus
-            var owl = $("#owl-aboutus");
-            owl.owlCarousel({
-                navigation: true,
-                singleItem: true
-            });
-
-        });
-    </script>
-
-
-
-
-
-
-
-
-</body><!-- jQuery --></html>
+  </body>
+</html>
