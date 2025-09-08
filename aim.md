@@ -1,0 +1,3 @@
+**To understand and practice Part-of-Speech tagging through interactive exploration of machine learning algorithms and linguistic features across different languages.**
+
+This experiment aims to help students develop proficiency in building and evaluating POS tagging systems that automatically assign grammatical categories (noun, verb, adjective, adverb, etc.) to words in natural language text. Through hands-on interaction with different algorithms, feature sets, and training corpora for English and Hindi, students will learn to configure tagging systems, analyze their performance, and understand how contextual information and training data size affect accuracy in computational linguistics applications.

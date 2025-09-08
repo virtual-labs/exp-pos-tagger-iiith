@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the primary purpose of Part-of-Speech (POS) tagging in Natural Language Processing?",
+      "answers": {
+        "a": "To assign grammatical categories to each word in a sentence",
+        "b": "To translate text from one language to another",
+        "c": "To count the frequency of words in a document",
+        "d": "To generate new sentences automatically"
+      },
+      "explanations": {
+        "a": "Correct! POS tagging assigns grammatical labels (noun, verb, adjective, etc.) to every word in a sentence, helping computers understand the linguistic structure.",
+        "b": "Incorrect. Machine translation is a different NLP task that may use POS tagging as a component, but it's not the primary purpose of POS tagging itself.",
+        "c": "Incorrect. Word frequency counting is a basic text analysis task, not POS tagging.",
+        "d": "Incorrect. Text generation is a different NLP task, though it may benefit from POS information."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following words can have multiple POS tags depending on context?",
+      "answers": {
+        "a": "Book",
+        "b": "The",
+        "c": "Always",
+        "d": "Blue"
+      },
+      "explanations": {
+        "a": "Correct! 'Book' can be a noun ('I read a book') or a verb ('I book a flight'). This ambiguity is why POS tagging considers context.",
+        "b": "Incorrect. 'The' is consistently a determiner across different contexts.",
+        "c": "Incorrect. 'Always' is consistently an adverb in most contexts.",
+        "d": "Incorrect. 'Blue' is typically an adjective, though it can occasionally be a noun ('the blue of the sky')."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In this experiment, which algorithms are used for POS tagging?",
+      "answers": {
+        "a": "Hidden Markov Model (HMM) only",
+        "b": "Conditional Random Field (CRF) only",
+        "c": "Both Hidden Markov Model (HMM) and Conditional Random Field (CRF)",
+        "d": "Deep Neural Networks only"
+      },
+      "explanations": {
+        "a": "Incorrect. While HMM is used, the experiment also includes CRF algorithms.",
+        "b": "Incorrect. While CRF is used, the experiment also includes HMM algorithms.",
+        "c": "Correct! This experiment allows you to compare both HMM and CRF approaches to understand their different strengths and characteristics.",
+        "d": "Incorrect. Deep neural networks are not the focus of this particular experiment, which concentrates on traditional statistical methods."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What generally happens to POS tagging accuracy when you increase the training corpus size?",
+      "answers": {
+        "a": "Accuracy typically improves up to a certain point",
+        "b": "Accuracy always decreases",
+        "c": "Accuracy remains exactly the same",
+        "d": "Accuracy changes randomly"
+      },
+      "explanations": {
+        "a": "Correct! Larger training corpora provide more examples of word-tag combinations and contexts, improving the model's statistical estimates and generalization ability, though returns may diminish after a certain point.",
+        "b": "Incorrect. More training data generally helps rather than hurts model performance.",
+        "c": "Incorrect. Training corpus size significantly affects model performance.",
+        "d": "Incorrect. The relationship between corpus size and accuracy follows predictable patterns based on statistical learning principles."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which context feature typically provides the best balance of accuracy and computational efficiency for POS tagging?",
+      "answers": {
+        "a": "Unigram (no context)",
+        "b": "Bigram (previous word/tag)",
+        "c": "Trigram (two previous words/tags)",
+        "d": "5-gram (four previous words/tags)"
+      },
+      "explanations": {
+        "a": "Incorrect. Unigram features provide limited context and typically result in lower accuracy for ambiguous words.",
+        "b": "Correct! Bigram features provide sufficient context to resolve most ambiguities while maintaining computational efficiency. They capture immediate dependencies without excessive complexity.",
+        "c": "Incorrect. While trigrams can provide higher accuracy, they increase computational cost and may suffer from data sparsity issues.",
+        "d": "Incorrect. Higher-order n-grams become computationally expensive and suffer from severe data sparsity problems."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is a key advantage of Conditional Random Fields (CRF) over Hidden Markov Models (HMM) for POS tagging?",
+      "answers": {
+        "a": "CRF can incorporate a wider range of features and dependencies",
+        "b": "CRF is always faster than HMM",
+        "c": "CRF requires less training data",
+        "d": "CRF only works with small vocabularies"
+      },
+      "explanations": {
+        "a": "Correct! CRFs are discriminative models that can incorporate rich feature sets including word morphology, capitalization, and complex dependencies, while HMMs are limited by their independence assumptions.",
+        "b": "Incorrect. CRFs are typically more computationally expensive than HMMs due to their complexity.",
+        "c": "Incorrect. CRFs often require substantial training data to estimate their many parameters effectively.",
+        "d": "Incorrect. CRFs can handle large vocabularies and are often used in real-world applications with extensive dictionaries."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Why might POS tagging accuracy differ between English and Hindi in this experiment?",
+      "answers": {
+        "a": "Different scripts, morphological complexity, and word order patterns",
+        "b": "Hindi is inherently more difficult to process",
+        "c": "English has fewer grammatical categories",
+        "d": "The algorithms only work well for English"
+      },
+      "explanations": {
+        "a": "Correct! Hindi uses Devanagari script, has rich morphological inflection, and different syntactic patterns compared to English, which can affect tagging accuracy and require different modeling approaches.",
+        "b": "Incorrect. No language is inherently more difficult; differences arise from linguistic properties and available resources.",
+        "c": "Incorrect. Both languages have complex grammatical systems, though they differ in structure.",
+        "d": "Incorrect. Modern POS tagging algorithms are language-independent and can be adapted to different languages."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In the Viterbi algorithm used with HMM for POS tagging, what is being optimized?",
+      "answers": {
+        "a": "The most probable sequence of POS tags given the observed words",
+        "b": "The fastest computational path",
+        "c": "The shortest tag sequence",
+        "d": "The random assignment of tags"
+      },
+      "explanations": {
+        "a": "Correct! The Viterbi algorithm uses dynamic programming to find the most likely sequence of hidden states (POS tags) given the observed sequence (words) and the model parameters.",
+        "b": "Incorrect. While Viterbi is computationally efficient, its primary goal is accuracy, not speed optimization.",
+        "c": "Incorrect. The algorithm finds the most probable sequence, not necessarily the shortest one.",
+        "d": "Incorrect. The Viterbi algorithm is deterministic and finds the optimal solution, not a random assignment."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following factors would LEAST likely improve POS tagging performance?",
+      "answers": {
+        "a": "Adding morphological features (prefixes, suffixes)",
+        "b": "Including capitalization information",
+        "c": "Randomly shuffling the word order in training sentences",
+        "d": "Using word embeddings as additional features"
+      },
+      "explanations": {
+        "a": "Incorrect. Morphological features help identify grammatical categories, especially for unknown words.",
+        "b": "Incorrect. Capitalization patterns are valuable features (e.g., proper nouns are often capitalized).",
+        "c": "Correct! Randomly shuffling word order destroys the sequential dependencies that are crucial for accurate POS tagging, as context and grammatical relationships depend on word order.",
+        "d": "Incorrect. Word embeddings capture semantic relationships that can improve tagging accuracy."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the 'label bias problem' that affects some sequence labeling models like HMM?",
+      "answers": {
+        "a": "The model prefers states with fewer outgoing transitions",
+        "b": "The model cannot handle unknown words",
+        "c": "The model is too slow for real-time applications",
+        "d": "The model requires too much training data"
+      },
+      "explanations": {
+        "a": "Correct! In HMMs, states with fewer outgoing transitions have an unfair advantage because the transition probabilities are normalized locally. This can lead to biased predictions favoring certain tag sequences.",
+        "b": "Incorrect. While unknown words are challenging, this is not specifically the label bias problem.",
+        "c": "Incorrect. Computational speed is not related to the label bias problem.",
+        "d": "Incorrect. Data requirements are not the core issue of label bias."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    }
+  ]
+}

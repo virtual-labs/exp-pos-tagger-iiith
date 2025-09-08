@@ -1,0 +1,910 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'IIITH',
+        'phase': 'Testing',
+        'expName': 'BUILDING POS TAGGER',
+        'expShortName': 'pos-tagger'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="pos-tagger">
+    	<meta name="developer-institute" content="IIITH">
+    	<meta name="learning-unit" content="BUILDING POS TAGGER">
+    	<meta name="task-name" content="Extended Study">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="pos-tagger" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] BUILDING POS TAGGER" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;BUILDING POS TAGGER&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="objective.html" class="p-2 ">
+                                      Objective
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2 ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2 ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="simulation.html" class="p-2 ">
+                                      Simulation
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="assignment.html" class="p-2 ">
+                                      Assignment
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="trivia.html" class="p-2 ">
+                                      Trivia
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="extended-study.html" class="p-2  current-item ">
+                                      Extended Study
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="glossary.html" class="p-2 ">
+                                      Glossary
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="contributors.html" class="p-2 ">
+                                      Contributors
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="objective.html" class="p-2 ">
+                        Objective
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2 ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2 ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="simulation.html" class="p-2 ">
+                        Simulation
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="assignment.html" class="p-2 ">
+                        Assignment
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="trivia.html" class="p-2 ">
+                        Trivia
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="extended-study.html" class="p-2  current-item ">
+                        Extended Study
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="glossary.html" class="p-2 ">
+                        Glossary
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="contributors.html" class="p-2 ">
+                        Contributors
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="building-pos-tagger">Building POS Tagger</h2>
+          
+            </div>
+              <h3 id="advanced-learning-activities">Advanced Learning Activities</h3>
+          <h4 id="1-cross-linguistic-pos-tagging-analysis">1. Cross-Linguistic POS Tagging Analysis</h4>
+          <p><strong>Activity</strong>: Compare POS tagging performance across different language families</p>
+          <p><strong>Task</strong>:</p>
+          <ul>
+          <li>Analyze the same text translated into English, Hindi, and one additional language</li>
+          <li>Compare tagging accuracy and common error patterns</li>
+          <li>Investigate how linguistic features affect tagging difficulty</li>
+          </ul>
+          <p><strong>Learning Goal</strong>: Understand how language structure impacts computational analysis</p>
+          <p><strong>Tools</strong>:</p>
+          <ul>
+          <li><a href="https://universaldependencies.org/">Universal Dependencies</a> corpora</li>
+          <li><a href="https://spacy.io/">spaCy</a> multilingual models</li>
+          <li><a href="https://stanfordnlp.github.io/stanza/">Stanza</a> for multiple languages</li>
+          </ul>
+          <h4 id="2-error-analysis-and-improvement">2. Error Analysis and Improvement</h4>
+          <p><strong>Activity</strong>: Systematic analysis of POS tagging errors</p>
+          <p><strong>Task</strong>:</p>
+          <ul>
+          <li>Run different POS taggers on the same dataset</li>
+          <li>Categorize errors by type (ambiguity, OOV words, context)</li>
+          <li>Propose and test improvement strategies</li>
+          </ul>
+          <p><strong>Learning Goal</strong>: Develop debugging and optimization skills</p>
+          <p><strong>Method</strong>:</p>
+          <ul>
+          <li>Create error taxonomy</li>
+          <li>Implement error correction post-processing</li>
+          <li>Measure improvement quantitatively</li>
+          </ul>
+          <h4 id="3-domain-adaptation-experiment">3. Domain Adaptation Experiment</h4>
+          <p><strong>Activity</strong>: Adapt POS taggers to specialized domains</p>
+          <p><strong>Task</strong>:</p>
+          <ul>
+          <li>Train on news text, test on social media/scientific papers</li>
+          <li>Compare performance across domains</li>
+          <li>Implement domain adaptation techniques</li>
+          </ul>
+          <p><strong>Learning Goal</strong>: Understand generalization challenges in NLP</p>
+          <p><strong>Resources</strong>:</p>
+          <ul>
+          <li><a href="https://catalog.ldc.upenn.edu/LDC2013T19">OntoNotes 5.0</a> for diverse domains</li>
+          <li>Twitter datasets for social media text</li>
+          <li>Scientific paper corpora (arXiv, PubMed)</li>
+          </ul>
+          <h4 id="4-real-time-pos-tagging-system">4. Real-Time POS Tagging System</h4>
+          <p><strong>Activity</strong>: Build a web application for interactive POS tagging</p>
+          <p><strong>Task</strong>:</p>
+          <ul>
+          <li>Create a user interface for text input</li>
+          <li>Implement real-time tagging with multiple algorithms</li>
+          <li>Add visualization and comparison features</li>
+          </ul>
+          <p><strong>Learning Goal</strong>: Apply theoretical knowledge to practical implementation</p>
+          <p><strong>Technologies</strong>:</p>
+          <ul>
+          <li>Web frameworks (Flask/Django for Python, Express for Node.js)</li>
+          <li>Frontend: HTML/CSS/JavaScript</li>
+          <li>NLP libraries: NLTK, spaCy, Stanford CoreNLP</li>
+          </ul>
+          <h3 id="research-topics-for-advanced-study">Research Topics for Advanced Study</h3>
+          <h4 id="1-neural-approaches-to-pos-tagging">1. Neural Approaches to POS Tagging</h4>
+          <p><strong>Research Focus</strong>: Transformer-based and LSTM-based models</p>
+          <p><strong>Key Questions</strong>:</p>
+          <ul>
+          <li>How do attention mechanisms help with POS tagging?</li>
+          <li>What linguistic knowledge do neural models learn implicitly?</li>
+          <li>How can we make neural models more interpretable?</li>
+          </ul>
+          <p><strong>Methods</strong>:</p>
+          <ul>
+          <li>Implement BiLSTM-CRF models</li>
+          <li>Experiment with BERT fine-tuning</li>
+          <li>Analyze attention patterns and hidden representations</li>
+          </ul>
+          <p><strong>Applications</strong>:</p>
+          <ul>
+          <li>State-of-the-art accuracy improvements</li>
+          <li>Better handling of out-of-vocabulary words</li>
+          <li>Multilingual transfer learning</li>
+          </ul>
+          <h4 id="2-low-resource-language-pos-tagging">2. Low-Resource Language POS Tagging</h4>
+          <p><strong>Research Focus</strong>: Techniques for languages with limited annotated data</p>
+          <p><strong>Key Questions</strong>:</p>
+          <ul>
+          <li>How can we leverage high-resource languages to help low-resource ones?</li>
+          <li>What role does linguistic typology play in transfer learning?</li>
+          <li>How effective are unsupervised and semi-supervised approaches?</li>
+          </ul>
+          <p><strong>Methods</strong>:</p>
+          <ul>
+          <li>Cross-lingual word embeddings</li>
+          <li>Model transfer and fine-tuning</li>
+          <li>Active learning for efficient annotation</li>
+          </ul>
+          <p><strong>Applications</strong>:</p>
+          <ul>
+          <li>Language documentation and preservation</li>
+          <li>Multilingual NLP systems</li>
+          <li>Educational tools for minority languages</li>
+          </ul>
+          <h4 id="3-contextual-word-representations">3. Contextual Word Representations</h4>
+          <p><strong>Research Focus</strong>: How context affects POS tag prediction</p>
+          <p><strong>Key Questions</strong>:</p>
+          <ul>
+          <li>How much context is necessary for accurate tagging?</li>
+          <li>What types of contextual features are most informative?</li>
+          <li>How do polysemic words benefit from contextual information?</li>
+          </ul>
+          <p><strong>Methods</strong>:</p>
+          <ul>
+          <li>Ablation studies with different context windows</li>
+          <li>Feature importance analysis</li>
+          <li>Comparative evaluation of context modeling approaches</li>
+          </ul>
+          <p><strong>Applications</strong>:</p>
+          <ul>
+          <li>Improved disambiguation algorithms</li>
+          <li>Better understanding of language processing</li>
+          <li>Enhanced text analysis tools</li>
+          </ul>
+          <h4 id="4-evaluation-and-benchmarking">4. Evaluation and Benchmarking</h4>
+          <p><strong>Research Focus</strong>: Better metrics and evaluation protocols for POS tagging</p>
+          <p><strong>Key Questions</strong>:</p>
+          <ul>
+          <li>Are current evaluation metrics sufficient?</li>
+          <li>How should we handle inter-annotator disagreement?</li>
+          <li>What are fair ways to compare systems across languages?</li>
+          </ul>
+          <p><strong>Methods</strong>:</p>
+          <ul>
+          <li>Novel evaluation metrics design</li>
+          <li>Cross-linguistic benchmarking studies</li>
+          <li>Error analysis methodologies</li>
+          </ul>
+          <p><strong>Applications</strong>:</p>
+          <ul>
+          <li>More reliable system comparisons</li>
+          <li>Better understanding of task difficulty</li>
+          <li>Improved annotation guidelines</li>
+          </ul>
+          <h3 id="practical-applications-to-explore">Practical Applications to Explore</h3>
+          <h4 id="1-educational-technology-development">1. Educational Technology Development</h4>
+          <p><strong>Project</strong>: Create adaptive POS tagging learning tools</p>
+          <p><strong>Activities</strong>:</p>
+          <ul>
+          <li>Design gamified grammar learning exercises</li>
+          <li>Implement personalized difficulty adjustment</li>
+          <li>Create real-time feedback systems</li>
+          <li>Develop progress tracking and analytics</li>
+          </ul>
+          <p><strong>Technical Components</strong>:</p>
+          <ul>
+          <li>User interface design</li>
+          <li>Machine learning for personalization</li>
+          <li>Educational psychology principles</li>
+          <li>Assessment and evaluation tools</li>
+          </ul>
+          <p><strong>Outcome</strong>: Help students learn grammar through interactive technology</p>
+          <h4 id="2-content-analysis-and-digital-humanities">2. Content Analysis and Digital Humanities</h4>
+          <p><strong>Project</strong>: Apply POS tagging to literary and historical analysis</p>
+          <p><strong>Activities</strong>:</p>
+          <ul>
+          <li>Analyze stylistic changes in authors' works over time</li>
+          <li>Compare grammatical patterns across literary genres</li>
+          <li>Study language evolution through historical corpora</li>
+          <li>Create visualization tools for linguistic patterns</li>
+          </ul>
+          <p><strong>Technical Components</strong>:</p>
+          <ul>
+          <li>Large-scale corpus processing</li>
+          <li>Statistical analysis and visualization</li>
+          <li>Historical language modeling</li>
+          <li>Digital humanities methodologies</li>
+          </ul>
+          <p><strong>Outcome</strong>: Provide new insights into literature and language history</p>
+          <h4 id="3-social-media-and-sentiment-analysis">3. Social Media and Sentiment Analysis</h4>
+          <p><strong>Project</strong>: Enhance sentiment analysis using POS information</p>
+          <p><strong>Activities</strong>:</p>
+          <ul>
+          <li>Analyze how POS patterns correlate with sentiment</li>
+          <li>Handle informal language and emoticons</li>
+          <li>Develop real-time social media monitoring tools</li>
+          <li>Study linguistic variations across platforms</li>
+          </ul>
+          <p><strong>Technical Components</strong>:</p>
+          <ul>
+          <li>Social media data collection and processing</li>
+          <li>Robust POS tagging for noisy text</li>
+          <li>Sentiment analysis integration</li>
+          <li>Real-time processing systems</li>
+          </ul>
+          <p><strong>Outcome</strong>: Better understanding of online discourse and opinion</p>
+          <h4 id="4-accessibility-and-assistive-technology">4. Accessibility and Assistive Technology</h4>
+          <p><strong>Project</strong>: Use POS tagging to improve text-to-speech and reading aids</p>
+          <p><strong>Activities</strong>:</p>
+          <ul>
+          <li>Improve prosody in text-to-speech systems</li>
+          <li>Create reading comprehension aids for dyslexic users</li>
+          <li>Develop grammar checking for non-native speakers</li>
+          <li>Build simplified text generation tools</li>
+          </ul>
+          <p><strong>Technical Components</strong>:</p>
+          <ul>
+          <li>Speech synthesis integration</li>
+          <li>User interface design for accessibility</li>
+          <li>Natural language generation</li>
+          <li>Educational psychology considerations</li>
+          </ul>
+          <p><strong>Outcome</strong>: Make text more accessible to diverse user populations</p>
+          <h3 id="advanced-tools-and-resources">Advanced Tools and Resources</h3>
+          <h4 id="programming-libraries-and-frameworks">Programming Libraries and Frameworks</h4>
+          <p><strong>Python Libraries</strong>:</p>
+          <ul>
+          <li><strong><a href="https://huggingface.co/transformers/">Transformers</a></strong>: State-of-the-art pre-trained models</li>
+          <li><strong><a href="https://allennlp.org/">AllenNLP</a></strong>: Research-focused NLP library</li>
+          <li><strong><a href="https://github.com/flairNLP/flair">Flair</a></strong>: Framework for state-of-the-art NLP</li>
+          <li><strong><a href="https://dynet.readthedocs.io/">DyNet</a></strong>: Dynamic neural networks</li>
+          </ul>
+          <p><strong>R Libraries</strong>:</p>
+          <ul>
+          <li><strong><a href="https://cran.r-project.org/package=udpipe">udpipe</a></strong>: Universal Dependencies parsing</li>
+          <li><strong><a href="https://spacyr.quanteda.io/">spacyr</a></strong>: R interface to spaCy</li>
+          <li><strong><a href="https://cran.r-project.org/package=openNLP">openNLP</a></strong>: Apache OpenNLP interface</li>
+          </ul>
+          <p><strong>Java Libraries</strong>:</p>
+          <ul>
+          <li><strong><a href="https://stanfordnlp.github.io/CoreNLP/">Stanford CoreNLP</a></strong>: Comprehensive NLP toolkit</li>
+          <li><strong><a href="https://opennlp.apache.org/">Apache OpenNLP</a></strong>: Machine learning-based NLP</li>
+          <li><strong><a href="https://gate.ac.uk/">GATE</a></strong>: General Architecture for Text Engineering</li>
+          </ul>
+          <h4 id="datasets-and-corpora">Datasets and Corpora</h4>
+          <p><strong>English Corpora</strong>:</p>
+          <ul>
+          <li><strong><a href="https://catalog.ldc.upenn.edu/LDC99T42">Penn Treebank</a></strong>: Classic English POS tagging dataset</li>
+          <li><strong><a href="https://catalog.ldc.upenn.edu/LDC2013T19">OntoNotes 5.0</a></strong>: Large-scale multilingual dataset</li>
+          <li><strong><a href="https://universaldependencies.org/">Universal Dependencies</a></strong>: Cross-linguistic treebanks</li>
+          </ul>
+          <p><strong>Multilingual Resources</strong>:</p>
+          <ul>
+          <li><strong><a href="https://nextens.uvt.nl/depparse-wiki/DataFormat">CoNLL-X Shared Task</a></strong>: Multiple languages</li>
+          <li><strong><a href="https://universaldependencies.org/">Universal Dependencies</a></strong>: 100+ languages</li>
+          <li><strong><a href="https://figshare.com/articles/dataset/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500">WikiNER</a></strong>: Multilingual named entity data</li>
+          </ul>
+          <p><strong>Specialized Domains</strong>:</p>
+          <ul>
+          <li><strong><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2151070/">BioDM POS</a></strong>: Biomedical text</li>
+          <li><strong><a href="https://github.com/yya518/FinBERT">FinPos</a></strong>: Financial domain</li>
+          <li><strong><a href="https://github.com/pucml/legal-pos">LegalPos</a></strong>: Legal documents</li>
+          </ul>
+          <h4 id="research-communities-and-conferences">Research Communities and Conferences</h4>
+          <p><strong>Major Conferences</strong>:</p>
+          <ul>
+          <li><strong><a href="https://www.aclweb.org/">ACL</a></strong>: Association for Computational Linguistics</li>
+          <li><strong><a href="https://www.emnlp.org/">EMNLP</a></strong>: Empirical Methods in Natural Language Processing</li>
+          <li><strong><a href="https://naacl.org/">NAACL</a></strong>: North American Chapter of ACL</li>
+          <li><strong><a href="https://www.coling.org/">COLING</a></strong>: International Conference on Computational Linguistics</li>
+          </ul>
+          <p><strong>Workshops and Special Interest Groups</strong>:</p>
+          <ul>
+          <li><strong><a href="https://sigmorphon.github.io/">SIGMORPHON</a></strong>: Computational morphology and phonology</li>
+          <li><strong><a href="https://typology-and-nlp.github.io/">TyP-NLP</a></strong>: Typology and NLP</li>
+          <li><strong><a href="https://sites.google.com/view/vardial2023">VarDial</a></strong>: Language variation and change</li>
+          </ul>
+          <p><strong>Online Communities</strong>:</p>
+          <ul>
+          <li><strong><a href="https://www.reddit.com/r/LanguageTechnology/">Reddit r/LanguageTechnology</a></strong></li>
+          <li><strong><a href="https://stackoverflow.com/questions/tagged/nlp">Stack Overflow NLP</a></strong></li>
+          <li><strong><a href="https://discuss.huggingface.co/">Hugging Face Forums</a></strong></li>
+          </ul>
+          <h3 id="capstone-project-ideas">Capstone Project Ideas</h3>
+          <h4 id="1-multilingual-pos-tagging-benchmark">1. Multilingual POS Tagging Benchmark</h4>
+          <p><strong>Goal</strong>: Create a comprehensive evaluation framework for multilingual POS tagging</p>
+          <p><strong>Components</strong>:</p>
+          <ul>
+          <li>Standardized evaluation protocols</li>
+          <li>Cross-linguistic performance analysis</li>
+          <li>Error analysis across language families</li>
+          <li>Public leaderboard and submission system</li>
+          </ul>
+          <p><strong>Technical Skills</strong>:</p>
+          <ul>
+          <li>Experimental design, statistical analysis, web development, multilingual NLP</li>
+          </ul>
+          <p><strong>Expected Duration</strong>: 6-12 months</p>
+          <p><strong>Impact</strong>: Advance the field's understanding of cross-linguistic NLP challenges</p>
+          <h4 id="2-neural-architecture-search-for-pos-tagging">2. Neural Architecture Search for POS Tagging</h4>
+          <p><strong>Goal</strong>: Automatically discover optimal neural network architectures for POS tagging</p>
+          <p><strong>Components</strong>:</p>
+          <ul>
+          <li>Implementation of architecture search algorithms</li>
+          <li>Performance evaluation across languages and domains</li>
+          <li>Analysis of discovered architectures</li>
+          <li>Transfer learning experiments</li>
+          </ul>
+          <p><strong>Technical Skills</strong>:</p>
+          <ul>
+          <li>Deep learning, optimization, experimental methodology, computational resources management</li>
+          </ul>
+          <p><strong>Expected Duration</strong>: 8-15 months</p>
+          <p><strong>Impact</strong>: Contribute to automated machine learning for NLP tasks</p>
+          <h4 id="3-real-time-multilingual-pos-tagging-service">3. Real-Time Multilingual POS Tagging Service</h4>
+          <p><strong>Goal</strong>: Build a production-ready API for multilingual POS tagging</p>
+          <p><strong>Components</strong>:</p>
+          <ul>
+          <li>Scalable backend architecture</li>
+          <li>Multiple algorithm support (HMM, CRF, Neural)</li>
+          <li>Performance optimization and caching</li>
+          <li>Documentation and client libraries</li>
+          <li>Monitoring and analytics dashboard</li>
+          </ul>
+          <p><strong>Technical Skills</strong>:</p>
+          <ul>
+          <li>Software engineering, API design, cloud deployment, performance optimization</li>
+          </ul>
+          <p><strong>Expected Duration</strong>: 4-8 months</p>
+          <p><strong>Impact</strong>: Provide useful tools for the NLP community and industry</p>
+          <h4 id="4-pos-tagging-for-code-switched-text">4. POS Tagging for Code-Switched Text</h4>
+          <p><strong>Goal</strong>: Develop specialized techniques for mixed-language text</p>
+          <p><strong>Components</strong>:</p>
+          <ul>
+          <li>Code-switching detection algorithms</li>
+          <li>Language-aware tagging models</li>
+          <li>Evaluation on social media and conversational data</li>
+          <li>Cross-linguistic analysis of code-switching patterns</li>
+          </ul>
+          <p><strong>Technical Skills</strong>:</p>
+          <ul>
+          <li>Multilingual NLP, social media analysis, linguistic analysis, evaluation methodology</li>
+          </ul>
+          <p><strong>Expected Duration</strong>: 6-10 months</p>
+          <p><strong>Impact</strong>: Address growing challenges in multilingual communication</p>
+          <h3 id="career-pathways">Career Pathways</h3>
+          <h4 id="academia-and-research">Academia and Research</h4>
+          <ul>
+          <li><strong>Research Scientist</strong>: Lead NLP research at universities or research institutions</li>
+          <li><strong>Postdoctoral Researcher</strong>: Advance specific aspects of POS tagging and sequence labeling</li>
+          <li><strong>Faculty Position</strong>: Teach computational linguistics and conduct research</li>
+          <li><strong>Research Engineer</strong>: Implement and scale research prototypes</li>
+          </ul>
+          <h4 id="industry-applications">Industry Applications</h4>
+          <ul>
+          <li><strong>NLP Engineer</strong>: Build production NLP systems using POS tagging</li>
+          <li><strong>Data Scientist</strong>: Apply POS tagging to text analytics and insights</li>
+          <li><strong>Product Manager</strong>: Guide development of language technology products</li>
+          <li><strong>Software Engineer</strong>: Integrate NLP capabilities into applications</li>
+          </ul>
+          <h4 id="specialized-domains">Specialized Domains</h4>
+          <ul>
+          <li><strong>Digital Humanities Specialist</strong>: Apply NLP to literary and historical analysis</li>
+          <li><strong>Educational Technology Developer</strong>: Create language learning applications</li>
+          <li><strong>Healthcare NLP Engineer</strong>: Process medical texts and clinical notes</li>
+          <li><strong>Legal Technology Specialist</strong>: Analyze legal documents and contracts</li>
+          </ul>
+          <h4 id="entrepreneurship">Entrepreneurship</h4>
+          <ul>
+          <li><strong>Startup Founder</strong>: Create NLP-powered products and services</li>
+          <li><strong>Consultant</strong>: Advise organizations on language technology adoption</li>
+          <li><strong>Freelance Developer</strong>: Build custom NLP solutions for clients</li>
+          <li><strong>Technical Writer</strong>: Create educational content and documentation</li>
+          </ul>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] BUILDING POS TAGGER" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;BUILDING POS TAGGER&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAABiFJREFUaEPFmVuMFEUUhv/TM7uwoBGVyG22u7ZnYGG5REETo8RA1BhFIka8ABFf0PCgDxhFEpCLqAlE1OiTiSj4gFGjD0QBETQaEqPRICALSHdPV+8YQQJBA+wuO1PHdMNcWGame2ZWqMfuc/nq1KlT1acJAzhShjFVAUsYdL8G3HjRdA7gHwna5uahLR91dnaeb9QlNWrA1+/o6GjuPnv2DQ30LICKNhk4qLF63PK8g434rejATJhjKa6m9WazOzOZzKlKTmYAcc8QnxEwJwqIAk5STpvpZJwD1eTHjR43PKflhtkZ2+ovVxbaTJiTSVM/gzCYGIebu4fc1nmi80w5J0nDWA7Qq1GACzLMR3pV7pZMJtNdTs/UzelE6msAQ0BYb7vuS6VyZaGTungGhPfygkRYZ7nusv4OEonEDc2xuEfA0JqgATBhieO6b/fXE0IM1pgPECgVvGP+x/bksFDo1JhUguPZI8FMAz0+zzFtSjqd9p8VRlJvew7E79QKHNgEDjrSndRfNyXEGmasLK4KttmeOysU2hdIGm0vA/xKUZh32VLeW6psCrGMmO+uB5qIeEh398P7jx8/m9cP9pGm9vtpmQ9WjHDzUSkPRYJOpVKDuK9vP0Dj8goMfsSR8ot6IKPoJI22XUBpEHitLWUx6heNVC15pmHMItCXBYeKPUZsLlFWVYNQsVg2nU7v82XaW1tHZ4lGhUEztOlEKOQ4A/b5XHZyuc0aWqdNIbYSY3aY00veM/9te3KE/ywlxGpmrKpJP8h5ftCR8qtyeqHQY3XdVNAO5vMskvMGoRWrT9Ke90QlX6HQF6N16Y4OI28Ampn/jatcxx+ZzJ8NQScSiZZBWvzJwAhhJoCKUQhkaoVmnAZoJcC9WowOH02nf6gWl0iRLpQk3ZwOym0n0DVVg10rNAAF7Ig1xedYltUbtpCRoZO6Po1J+z7S6VcHdLCIClusLnfBgED7NVv1ZX8lYGKYwbrSo8Qogxc4Um5pOD1Mo20DgZ+PBFxPTpcYJuBUljDRdd1jdW/EcYnEmKwWSxNR05WADnwo2mB3pV+oGzopxDowlkYGbjDSF9ILpwd1D2mtdB2uuhEv3D+yfwG4/opCB5WVnrZk+v1yfqtCJ3X9TpC2pybggYj0BYcf29KdXwe0WArCuqsCzSxtT4qq0GareStIXXo3JjxGwNSrAh0crMFFq3jYEJ9wpPygkB6mYZwg0PCaAcsp1Hm4RPFtS5eK0LpxvqayVs3DlYIO7r0K8xUhlufRGKNrupLmFQcImsEZBhWaOxq4y5ZyRvXqIcSnYDwaZdkukRkgaGqK32RZ1on+/qt/buliFRFWXxXokonXBJ3S22Yz8darAc2sdjqed1/NddpvnMQUHwPRdTWBD0R6EBbbrltoGJX6D71PJ3V9E0h76kpCMzirNTWNLpfPPkcodNDXi6m9QLGqhE6gwUgzaKMj04sq+QmF9hVrjnYj0IwejmvtjuN4DUEbhjEqztgLoqCXEToagQavsKV8rZqPSJH2DaSEmMGMXZHSpE5oZnzneK7fL8w1DJ1sTU6CltvEwPj/88OWwRYx77Y9b3HD0KYuvqUL/Y5oo85I542TooesrnTF8yE0PUwh5hGj6tfxZTNpEBqKvUE9QyfW9bnV3t5+bV9P7yECxuTBFGOvRn5v5eJgTLzsUhUFmuGCcLJoBiNL/ZT7bVFYiWrrnTSM9QC9WBSmzy2ZnluqI4QYGQcWM/O8Qi+7EjSjB4xtTNqHjuf4HVHO20q1tiZZi/k/j1r8Z8zcRxyfanfZv/dnrJgeYw1jQo6xr+SOfY5j2oRq9VMIIWLA7QSMslz3raDGG8ZMJhoPpR1QmvrFdd2eSoFKGm0rAF5bfM97bCnvKp2c/64idFLXd4C0woWFwMstKV+PthPrk/L/R/aeOfcbCBOKq8uLLCk3llos/0tON+8hUt+U5O1Rao5PjtIcrA+3qOWvDEC78wFlIO1I1wyFTuptC0G8uWSZHrCl3N4oUFT9NiE2a4yFQW6DLUfKsaHQU0aMGHq2pWULM98Bpncdzy35yxXVdf1yftXK9vS8CUVjtBjWHHXdn0qt/Qf/x1JblU8EiAAAAABJRU5ErkJggg==);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-pos-tagger-iiith/plugins/svc-rating/index.js"></script><script type="module" src="/exp-pos-tagger-iiith/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>

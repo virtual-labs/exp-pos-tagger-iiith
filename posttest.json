@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "After completing the simulation, which statement best describes the relationship between training corpus size and POS tagging accuracy?",
+      "answers": {
+        "a": "Accuracy always increases linearly with corpus size",
+        "b": "Accuracy improves with larger corpora but shows diminishing returns",
+        "c": "Corpus size has no impact on accuracy",
+        "d": "Smaller corpora always produce better results"
+      },
+      "explanations": {
+        "a": "Incorrect. While accuracy generally improves with more data, the relationship is not strictly linear and shows diminishing returns.",
+        "b": "Correct! You should have observed that larger training corpora improve accuracy, but the improvement rate decreases as corpus size grows very large.",
+        "c": "Incorrect. Corpus size significantly affects model performance as you should have seen in your experiments.",
+        "d": "Incorrect. Larger corpora typically provide better statistical estimates and higher accuracy."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Based on your experimental observations, which context feature configuration typically provides the best accuracy?",
+      "answers": {
+        "a": "Unigram features only",
+        "b": "Bigram features",
+        "c": "Trigram features",
+        "d": "All configurations perform equally"
+      },
+      "explanations": {
+        "a": "Incorrect. Unigram features lack context information needed for disambiguating words with multiple possible POS tags.",
+        "b": "Incorrect. While bigram features are good, trigram features typically provide even better performance.",
+        "c": "Correct! Trigram features should have shown the highest accuracy in your experiments because they capture richer contextual dependencies.",
+        "d": "Incorrect. Different context configurations show clear performance differences in POS tagging tasks."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "From your simulation experience, which algorithm generally performed better for POS tagging?",
+      "answers": {
+        "a": "Hidden Markov Model (HMM) always outperforms CRF",
+        "b": "Conditional Random Field (CRF) typically achieves higher accuracy",
+        "c": "Both algorithms perform identically",
+        "d": "Performance depends only on corpus size, not algorithm choice"
+      },
+      "explanations": {
+        "a": "Incorrect. CRF models typically outperform HMM models due to their ability to incorporate richer features.",
+        "b": "Correct! You should have observed that CRF generally achieves higher accuracy than HMM because it can utilize more complex feature combinations and avoid independence assumptions.",
+        "c": "Incorrect. The algorithms have different strengths and typically show performance differences.",
+        "d": "Incorrect. Algorithm choice significantly impacts performance, as you should have observed in your experiments."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "When you tested different language options (English vs Hindi), what key difference did you likely observe?",
+      "answers": {
+        "a": "Both languages showed identical accuracy patterns",
+        "b": "Different languages may show varying accuracy due to linguistic complexity",
+        "c": "Hindi always performs better than English",
+        "d": "English always performs better than Hindi"
+      },
+      "explanations": {
+        "a": "Incorrect. Different languages have varying linguistic properties that affect tagging difficulty.",
+        "b": "Correct! You should have noticed that languages with different scripts, morphological complexity, and grammatical structures can show different accuracy patterns.",
+        "c": "Incorrect. No language is inherently superior; performance depends on various linguistic and dataset factors.",
+        "d": "Incorrect. Performance varies based on linguistic properties and available training data, not inherent language superiority."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Based on your experiments, what is the primary advantage of using CRF over HMM for POS tagging?",
+      "answers": {
+        "a": "CRF is always faster to train and execute",
+        "b": "CRF can incorporate a wider variety of features and dependencies",
+        "c": "CRF requires less training data",
+        "d": "CRF works only with large vocabularies"
+      },
+      "explanations": {
+        "a": "Incorrect. CRF is typically more computationally expensive than HMM due to its complexity.",
+        "b": "Correct! You should have learned that CRF's discriminative nature allows it to incorporate rich feature sets and complex dependencies that HMM cannot handle due to its independence assumptions.",
+        "c": "Incorrect. CRF typically requires substantial training data to estimate its parameters effectively.",
+        "d": "Incorrect. CRF can work with vocabularies of various sizes and is not limited to large vocabularies."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In your simulation experiments, which configuration would you choose for a real-world application requiring high accuracy?",
+      "answers": {
+        "a": "HMM with unigram features and small corpus",
+        "b": "CRF with trigram features and large corpus",
+        "c": "HMM with trigram features and medium corpus",
+        "d": "Any configuration since they all perform equally"
+      },
+      "explanations": {
+        "a": "Incorrect. This combination typically provides the lowest accuracy due to limited context and algorithm constraints.",
+        "b": "Correct! Based on your experimental observations, CRF with trigram features and a large corpus should have provided the highest accuracy.",
+        "c": "Incorrect. While this is better than option (a), CRF typically outperforms HMM, and larger corpora improve performance.",
+        "d": "Incorrect. Your experiments should have clearly shown that different configurations produce significantly different accuracies."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "From the demo examples you explored, why might the word 'can' be challenging for POS taggers?",
+      "answers": {
+        "a": "It's a very rare word",
+        "b": "It can function as both a noun and a verb depending on context",
+        "c": "It only appears in technical documents",
+        "d": "It's not in English dictionaries"
+      },
+      "explanations": {
+        "a": "Incorrect. 'Can' is a common word in English.",
+        "b": "Correct! 'Can' demonstrates lexical ambiguity - it can be a modal verb ('I can swim') or a noun ('a can of soup'), requiring contextual analysis for correct tagging.",
+        "c": "Incorrect. 'Can' appears in many types of text, not just technical documents.",
+        "d": "Incorrect. 'Can' is a standard English word found in all dictionaries."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "After experimenting with the simulation, what would be the most effective strategy to improve POS tagging accuracy for a low-resource language?",
+      "answers": {
+        "a": "Use only unigram features to avoid overfitting",
+        "b": "Combine transfer learning from high-resource languages with available data",
+        "c": "Always use the smallest possible training corpus",
+        "d": "Ignore contextual features completely"
+      },
+      "explanations": {
+        "a": "Incorrect. Unigram features alone provide insufficient context for accurate tagging, especially with limited data.",
+        "b": "Correct! Your understanding of how corpus size and features affect performance should suggest that leveraging knowledge from related high-resource languages can help overcome data limitations.",
+        "c": "Incorrect. Your experiments showed that larger corpora generally improve performance, even for different languages.",
+        "d": "Incorrect. Contextual features are crucial for disambiguation, as demonstrated in your trigram vs. unigram comparisons."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Based on your experimental observations, when might you choose HMM over CRF despite CRF's generally higher accuracy?",
+      "answers": {
+        "a": "When computational resources are severely limited",
+        "b": "When you need the highest possible accuracy",
+        "c": "When working with large training corpora",
+        "d": "Never, CRF is always the better choice"
+      },
+      "explanations": {
+        "a": "Correct! Your experiments should have shown that while CRF achieves higher accuracy, HMM is computationally simpler and faster, making it suitable for resource-constrained environments.",
+        "b": "Incorrect. CRF typically provides higher accuracy than HMM, as you should have observed.",
+        "c": "Incorrect. Large corpora benefit CRF more than HMM due to CRF's ability to learn complex feature interactions.",
+        "d": "Incorrect. There are practical scenarios where computational efficiency might outweigh small accuracy gains."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Reflecting on your complete experimental experience, what is the most important lesson about the relationship between features, algorithms, and data in POS tagging?",
+      "answers": {
+        "a": "Algorithm choice is the only factor that matters",
+        "b": "More data always solves any performance problem",
+        "c": "The optimal solution requires balancing algorithm sophistication, feature richness, and data quantity",
+        "d": "Simple features always outperform complex ones"
+      },
+      "explanations": {
+        "a": "Incorrect. Your experiments should have shown that corpus size, context features, and algorithm choice all contribute to performance.",
+        "b": "Incorrect. While more data generally helps, your experiments should have shown diminishing returns and the importance of algorithm and feature choices.",
+        "c": "Correct! Your systematic experimentation should have revealed that optimal POS tagging requires thoughtful consideration of all three factors: choosing appropriate algorithms, selecting informative features, and having sufficient training data.",
+        "d": "Incorrect. Your trigram vs. unigram comparisons should have demonstrated that richer features typically improve performance."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    }
+  ]
+}
