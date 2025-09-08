@@ -18,8 +18,8 @@ function hideResultPanel() {
 // Utility to fetch and parse the data file based on language
 function fetchDataFile(language, callback) {
   let file = "";
-  if (language === "eng") file = "analyse-size/accuracies_english";
-  else if (language === "hin") file = "analyse-size/accuracies_hindi";
+  if (language === "eng") file = "analyse-size/accuracies_english.txt";
+  else if (language === "hin") file = "analyse-size/accuracies_hindi.txt";
   else return;
   $.ajax({
     url: file,
